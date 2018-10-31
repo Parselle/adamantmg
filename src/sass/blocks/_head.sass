@@ -1,0 +1,133 @@
+.header
+  position: fixed
+  top: 0
+  width: 100%
+  padding: 15px 0
+  overflow: visible
+  z-index: 210
+  background: none
+  transition: all 0.3s
+
+  &.scroll
+    padding: 10px 0
+    background: linear-gradient(90deg,#8e5fc2 25%,#70e5ec)
+    box-shadow: $shadow-main
+
+    .header__logo
+      width: 130px
+
+    .header__nav
+      +media-mx(870px)
+        padding-top: 75px
+
+  .wrap
+    grid-template-columns: 154px auto 260px
+    justify-items: center
+    justify-content: space-between
+    align-items: center
+    grid-gap: 25px
+
+    +media-mx(1140px)
+      grid-template-columns: 154px auto
+      justify-content: center
+
+    +media-mx(870px)
+      justify-content: space-between
+
+  &__logo
+    z-index: 220
+    width: 154px
+    transition: all 0.3s
+
+  &__nav
+    display: flex
+    flex-wrap: wrap
+    z-index: 210
+
+    +media-mx(870px)
+      position: absolute
+      display: grid
+      justify-content: start
+      align-content: start
+      justify-items: start
+      grid-gap: 15px
+      top: 0
+      left: 0
+      width: 50%
+      height: 100vh
+      padding: 20px
+      padding-top: 90px
+      background: $color-blue-dark
+      overflow-y: scroll
+      transition: all 0.3s
+      transform: translateX(-100%)
+
+    +media-mx(500px)
+      width: 80%
+
+    &.active
+      transform: translateX(0)
+
+  .nav
+    &__item
+      display: flex
+      color: white
+      font-size: 18px
+      border-bottom: 1px dashed white
+      text-decoration: none
+      transition: all 0.3s
+
+      &:hover
+        color: $color-blue-light
+        border-color: $color-blue-light
+        border-bottom-style: solid
+
+      &.active
+        color: $color-blue-dark
+        border-color: $color-blue-dark
+        border-bottom-style: solid
+
+        +media-mx(870px)
+          color: $color-blue-light
+          border-color: $color-blue-light
+
+      &:not(:nth-of-type(1)),
+      &:not(:nth-last-of-type(1))
+          margin-right: 20px
+
+      &.nav__phone
+        display: none
+        border-bottom: 0
+        margin-bottom: 10px
+
+        +media-mx(870px)
+          display: flex
+
+
+      +media-mx(870px)
+        font-size: 18px
+        font-weight: bold
+
+  &__menu-btn
+    display: none
+    z-index: 220
+
+    +media-mx(870px)
+      display: grid
+
+  &__phone-icon
+    fill: $color-green
+
+    .active
+      fill: $color-blue-dark
+
+  &__menu-btn
+    fill: white
+    transition: fill 0.3s
+
+    &.active
+      fill: $color-blue-dark
+
+  &__btn
+    +media-mx(1140px)
+      display: none

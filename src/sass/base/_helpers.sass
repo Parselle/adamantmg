@@ -1,3 +1,31 @@
 //Colors
 .green
   color: green !important
+
+.hidden
+  display: none
+
+.line
+  position: relative
+  padding-left: 190px
+
+  +media-mx(970px)
+    padding-left: 0
+    position: unset
+
+  &::before
+    position: absolute
+    top: 40px
+    left: 0
+    content: ''
+    display: grid
+    width: 100%
+    max-width: 165px
+    height: 10px
+
+    +media-mx(970px)
+      display: none
+
+  &--white::before
+    background: white
+    

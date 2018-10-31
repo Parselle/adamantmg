@@ -1,0 +1,78 @@
+.main
+  position: relative
+  margin-top: -77px
+  padding-top: 150px
+  padding-bottom: 100px
+  background: linear-gradient(90deg,#8e5fc2 25%,#70e5ec)
+
+  +media-mx(970px)
+    padding-top: 100px
+    padding-bottom: 80px
+
+  &__asteroids-inner
+    position: absolute
+    top: calc(-50% + 129px)
+    left: calc(50% + 226px)
+    z-index: 1
+    width: 887px
+    height: 838px
+    background-image: url(../img/adamant/asteroids-inner.png)
+
+  &__asteroids-outer
+    position: absolute
+    top: -50%
+    left: calc(50% + 100px)
+    z-index: 1
+    width: 1143px
+    height: 1096px
+    background-image: url(../img/adamant/asteroids-outer.png)
+
+  &__asteroids-inner,
+  &__asteroids-outer
+    +media-mx(970px)
+      display: none
+
+  &__rock
+    position: absolute
+    top: 55%
+    right: calc(50% + 25px)
+    z-index: 1
+    width: 535px
+    height: 575px
+    background: url(../img/adamant/masterpiece.png) center no-repeat
+    transform: translateY(-50%)
+
+    +media-mx(970px)
+      right: 50%
+      bottom: 50%
+      transform: translateX(50%) translateY(-50%) scale(0.8)
+
+  .wrap
+    overflow: hidden
+
+    +media-mx(970px)
+      grid-gap: 10px
+
+    *
+      z-index: 200
+
+  .particles-js-canvas-el
+    position: absolute
+    top: 0
+
+  &__title
+    max-width: 750px
+    color: white
+    font-weight: bold
+    font-size: 72px
+
+    +media-mx(1280px)
+      font-size: calc(21.39535px + 3.95349vw)
+
+  &__desc
+    max-width: 690px
+    padding-left: 190px
+    color: white
+
+    +media-mx(970px)
+      padding-left: 0
