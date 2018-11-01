@@ -25,6 +25,11 @@ export default class Menu {
     this.open ? this._close() : this._open();
   }
 
+  _toggleScroll() {
+    if (window.pageYOffset >= 1) this.header.classList.add('scroll');
+    else this.header.classList.remove('scroll');
+  }
+
   run() {
     this.menuBtn.addEventListener('click', () => {
       this._toggle();
@@ -41,9 +46,10 @@ export default class Menu {
       });
     });
 
+    this._toggleScroll();
+
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset >= 1) this.header.classList.add('scroll');
-      else this.header.classList.remove('scroll');
+      this._toggleScroll();
     });  
   
   }

@@ -1,0 +1,28 @@
+.tools
+  background: url('../img/tools/background.jpg') center no-repeat
+  background-size: cover
+  
+  &__list
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(200px, 296px))
+    grid-gap: 30px 20px
+
+    +media-mx(970px)
+      grid-template-columns: repeat(auto-fill, 200px)
+
+  .list
+    &__item
+      display: grid
+      grid-template-columns: 85px auto
+      justify-items: start
+      justify-content: start
+
+      +media-mx(970px)
+        grid-template-columns: 70px auto
+
+    &__icon
+      fill: $color-blue-light
+
+    &__title
+      font-weight: bold

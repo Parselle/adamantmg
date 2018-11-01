@@ -1,0 +1,58 @@
+.clients
+
+  .wrap
+    padding-left: 15px
+
+  &__title
+    margin-left: 0
+
+  &__plates
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(auto-fill, 160px)
+    grid-gap: 30px
+    justify-self: center
+
+  .plates
+    &__item
+      position: auto
+      display: grid
+      grid-gap: 15px
+      justify-items: center
+      align-items: start
+      align-content: start
+      transition: all 0.5s
+
+      &.hidden
+        visibility: hidden
+        opacity: 0
+        height: 0
+        position: absolute
+        top: 0
+
+    &__link
+      color: $color-dark
+      font-size: 12px
+      font-weight: bold
+      transition: all 0.3s
+
+      +on-event
+        color: $color-blue-light
+
+  &__btn
+    display: grid
+    grid-template-columns: 20px auto
+    grid-gap: 15px
+    align-content: center
+    align-items: center
+    fill: $color-dark
+    font-weight: bold
+    color: $color-dark
+    texx-decoration: none
+    line-height: 0.8
+    justify-self: center
+    transition: all 0.3s
+    margin-top: 20px
+
+    +on-event
+      color: $color-blue-light

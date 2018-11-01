@@ -3,6 +3,7 @@ import InputMask from './base/InputMask';
 import Menu from './components/Menu';
 import './components/Particles';
 import Asteroids from './components/Asteroids';
+import Clients from './components/Clients';
 // import Slider from './components/Slider';
 // import Timer from './components/timer';
 // import Counter from './components/Counter';
@@ -39,6 +40,8 @@ window.onload = function() {
     speed: 15,
     direction: false
   });
+
+  new Clients().run();
 
   // document.querySelectorAll('.js-slider').forEach((item) => {
   //   new Slider(item).run();

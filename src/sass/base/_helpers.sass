@@ -22,10 +22,46 @@
     width: 100%
     max-width: 165px
     height: 10px
+    background: $color-blue-dark
 
     +media-mx(970px)
       display: none
 
   &--white::before
     background: white
+
+.section
+  padding: 50px 0
+
+  +media-mx(768px)
+    padding: 30px 0
+
+  .wrap
+    grid-gap: 40px
+    padding-left: 190px
+
+    +media-mx(1200px)
+      grid-gap: 20px
+      padding-left: 15px
+
+  &__title
+    font-size: 72px
+    font-weight: bold
+    color: $color-blue-dark
+    margin-left: -190px
+
+    +media-mx(1200px)
+      margin-left: 0
+
+    +media-mx(1140px)
+      font-size: calc(21.39535px + 3.95349vw)
+
+  .line
+    +media-mx(1200px)
+      padding-left: 0
+      position: unset
+
+    &::before
+      +media-mx(1200px)
+        display: none
     

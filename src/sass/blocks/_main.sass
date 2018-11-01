@@ -9,6 +9,11 @@
     padding-top: 100px
     padding-bottom: 80px
 
+  +media-mx(500px)
+    height: 100vh
+    display: grid
+    align-items: center
+
   &__asteroids-inner
     position: absolute
     top: calc(-50% + 129px)
@@ -47,11 +52,17 @@
       bottom: 50%
       transform: translateX(50%) translateY(-50%) scale(0.8)
 
+    +media-mx(500px)
+      margin-top: -35px
+
   .wrap
     overflow: hidden
 
     +media-mx(970px)
       grid-gap: 10px
+
+    +media-mx(500px)
+      margin-top: -77px
 
     *
       z-index: 200

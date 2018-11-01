@@ -1,0 +1,58 @@
+.about
+  padding-top: 100px
+
+  +media-mx(768px)
+    padding: 30px 0
+  
+  &__article
+    display: grid
+    grid-gap: 20px
+
+  .article
+    &__title
+      font-weight: bold
+
+  &__stats
+    display: grid
+    grid-template-columns: repeat(4, 215px)
+    grid-gap: 30px
+    margin-top: 15px
+
+    +media-mx(970px)
+      grid-template-columns: repeat(2, 215px)
+      justify-self: center
+
+    +media-mx(500px)
+      grid-template-columns: 215px
+      justify-self: start
+
+  .stats
+    &__item
+      display: grid
+      align-content: start
+      align-items: start
+      grid-gap: 5px
+
+      +media-mx(500px)
+        grid-template-columns: 60px auto
+        grid-gap: 20px
+
+    &__number
+      position: relative
+      font-size: 90px
+      font-weight: bold
+      line-height: 1
+
+      +media-mx(500px)
+        font-size: 48px
+
+      sup
+        position: absolute
+        top: 10px
+        right: 30px
+        font-size: 30px
+        font-weight: inherit
+        vertical-align: text-top
+
+        +media-mx(500px)
+          right: 0
