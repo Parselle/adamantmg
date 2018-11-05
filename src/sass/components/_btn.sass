@@ -51,24 +51,7 @@
     grid-gap: 5px
 
   //Color
-  +mod('--red')
-    background: $color-danger
-    color: white
-
-    +on-event
-      background: darken($color-danger, 5%)
-      transform: scale(0.98)
-
-    +mod('--pulse')
-      animation: pulse-red 1.5s ease infinite
-
-    @keyframes pulse-red
-      0%
-        box-shadow: 0px 0px 0px 0px $color-danger
-      100%
-        box-shadow: 0px 0px 10px 15px rgba($color-danger, 0)
-
-  +mod('--white')
+  +mod('--phone')
     background: white
     color: $color-green
 
@@ -84,6 +67,15 @@
         box-shadow: 0px 0px 0px 0px white
       100%
         box-shadow: 0px 0px 10px 15px rgba(white, 0)
+
+  +mod('--white')
+    background: none
+    color: white
+    border: 3px solid white
+
+    +on-event
+      background: white
+      color: $color-purple
 
   +mod('--purple')
     background: none

@@ -1,17 +1,110 @@
 .footer
+  display: grid
+  grid-template-columns: 1fr 1fr
+
+  +media-mx(1020px)
+    grid-template-columns: auto
+
+  &__content
+    display: grid
+
+  &__contacts
+    display: grid
+    grid-template-columns: minmax(200px, 585px)
+    justify-content: end
+    padding: 50px 15px
+    background: $color-blue-dark
+
+    +media-mx(1020px)
+      justify-content: center
+      grid-row: 2 / 3
+
+    +media-mx(600px)
+      padding: 30px 15px
+
+
+  .contacts
+    &__content
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-gap: 15px 0
+
+      +media-mx(600px)
+        grid-template-columns: auto
+
+    &__block
+      display: grid
+      justify-items: start
+      grid-gap: 15px
+
+    &__item
+      display: grid
+      grid-template-columns: 25px auto
+      align-items: center
+      align-content: center
+      justify-items: center
+      grid-gap: 15px
+
+    &__icon
+      fill: white
+
+    &__link
+      color: white
+      border-bottom: 1px dashed white
+      transition: all 0.3s
+      text-decoration: none
+
+      &:hover
+        border-bottom-style: solid
+
+      &--phone
+        font-size: 24px
+        font-weight: bold
+
+    &__address
+      display: grid
+      grid-template-columns: 19px auto
+      grid-gap: 20px
+      grid-column: 1 / -1
+
+      .address
+        &__text
+          color: white
+
+  &__form
+    background: #8bbccb
+    justify-content: end
+    padding: 50px 30px 50px 15px
+
+    +media-mx(1020px)
+      grid-row: 1 / 2
+      justify-content: center
+      padding: 50px 15px
+
+    +media-mx(600px)
+      padding: 30px 15px
+
+  &__map
+    background: #dadada
+
+.copyright
   padding: 40px 0
-  width: 100%
-  background: white
+
+  +media-mx(600px)
+    padding: 30px 0
 
   .wrap
-    display: grid
-    grid-template-columns: minmax(auto, 570px)
-    grid-gap: 0
-    justify-content: center
+    justify-items: center
     text-align: center
 
-    *
-      text-align: center
-      font-size: 14px
-      line-height: 18px
-      color: $color-grey-light
+  &__list
+    display: grid
+    grid-gap: 5px
+
+  .list
+    &__link
+      color: #999999
+      transition: all 0.3s
+
+      &:hover
+        color: $color-blue-dark

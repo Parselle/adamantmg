@@ -1,0 +1,95 @@
+.methods
+
+  &__plates
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 30px
+    counter-reset: number
+
+    +media-mx(1200px)
+      grid-template-columns: repeat(2, minmax(20px, 1fr))
+      grid-gap: 10px
+
+    +media-mx(660px)
+      grid-template-columns: auto
+
+  .plates
+    &__double-row
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-column: 1 / -1
+      grid-gap: 30px
+
+      +media-mx(1200px)
+        grid-template-columns: repeat(2, minmax(20px, 1fr))
+        grid-gap: 10px
+
+      +media-mx(660px)
+        grid-template-columns: auto
+
+    &__item
+      position: relative
+      display: grid
+      padding: 25px
+      border: 1px solid #cccccc
+      height: 250px
+      counter-increment: number
+      transition: all 0.3s
+
+      +media-mx(660px)
+        height: 220px
+
+      &:hover
+        border-color: $color-blue-light
+        box-shadow: 0 0 0 1px $color-blue-light
+
+        &::before
+          color: $color-blue-light
+          transition: all 0.3s
+
+        & .plates__text
+          color: $color-blue-light
+          text-decoration: underline
+
+      &::before
+        content: '0' counter(number) '.'
+        font-size: 48px
+        font-weight: bold
+        color: $color-blue-dark
+        transition: all 0.3s
+
+    &__img
+      position: absolute
+      top: 28px
+      right: 25px
+      width: 202px
+      height: 143px
+      z-index: -1
+
+      +media-mx(1200px)
+        top: 15px
+        right: 15px
+
+    &__hover
+      display: grid
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      text-decoration: none
+
+    &__text
+      display: grid
+      position: absolute
+      width: 100%
+      height: 100%
+      justify-items: start
+      align-items: end
+      align-content: end
+      padding: 25px
+      font-weight: bold
+      color: $color-blue-dark
+      text-decoration: none
+      pointer-events: none
+      transition: all 0.3s

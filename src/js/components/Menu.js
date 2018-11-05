@@ -50,7 +50,9 @@ export default class Menu {
 
     window.addEventListener('scroll', () => {
       this._toggleScroll();
-    });  
-  
+    });
+
+    let isIndex = document.querySelector('.main');
+    if (isIndex) this.header.classList.add('isIndex');
   }
 }

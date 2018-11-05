@@ -1,12 +1,14 @@
 .c-input
-  width: auto
-  min-height: 50px
+  width: 100%
+  min-height: 58px
   padding: 10px 15px
-  border: 1px solid $color-grey-light
+  border: 3px solid #dadada
   outline: none
-  transition: all 0.2s
+  transition: all 0.3s
   -moz-appearance: none
   -webkit-appearance: none
+  font-size: 18px
+  resize: none
 
   &:-moz-focusring
     color: transparent
@@ -20,15 +22,15 @@
     margin: 0
 
   &::placeholder
-    color: $color-grey-light
+    color: #999999
 
   +on-event
-    box-shadow: 0px 0px 0px 2px $color-grey-light
-    border-color: $color-grey-light
+    box-shadow: 0px 0px 0px 1px $color-blue-light
+    border-color: $color-blue-light
 
   &:focus
-    box-shadow: 0px 0px 0px 2px $color-danger
-    border-color: $color-danger
+    box-shadow: 0px 0px 0px 1px $color-purple
+    border-color: $color-purple
 
   &--select
     cursor: pointer

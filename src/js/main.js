@@ -4,44 +4,61 @@ import Menu from './components/Menu';
 import './components/Particles';
 import Asteroids from './components/Asteroids';
 import Clients from './components/Clients';
-// import Slider from './components/Slider';
-// import Timer from './components/timer';
-// import Counter from './components/Counter';
-// import Modal from './components/Modal';
+import initMap from './components/Map';
+import Modal from './components/Modal';
+import Tools from './components/Tools';
 
 window.onload = function() {
+
+  window.initMap = initMap;
 
   new SmoothScroll('a[href*="#"]', {
     speed: 800,
     easing: 'easeInOutCubic',
-    ignore: 'a[data-scroll-ignore]'
+    ignore: 'a[data-scroll-ignore]',
+    offset: 67
   });
 
   new InputMask().run();
 
   new Menu().run();
 
-  particlesJS.load('particles-js', 'media/Particles.config.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
+  let particles = document.querySelector('#particles-js');
+  if (particles) {
+    particlesJS.load('particles-js', 'media/Particles.config.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  }
 
-  new Asteroids({
-    element: document.querySelector('.js-asteroids-outer'),
-    max: 5,
-    min: -15,
-    speed: 10,
-    direction: true
-  });
-  
-  new Asteroids({
-    element: document.querySelector('.js-asteroids-inner'),
-    max: 10,
-    min: -10,
-    speed: 15,
-    direction: false
-  });
+  let asteroid1 = document.querySelector('.js-asteroids-outer');
+  let asteroid2 = document.querySelector('.js-asteroids-inner');
+  if (asteroid1 && asteroid1) {
+    new Asteroids({
+      element: asteroid1,
+      max: 5,
+      min: -15,
+      speed: 10,
+      direction: true
+    });
+    
+    new Asteroids({
+      element: asteroid2,
+      max: 10,
+      min: -10,
+      speed: 15,
+      direction: false
+    });
+  }
 
-  new Clients().run();
+  let clients = document.querySelector('.js-clients');
+  if (clients) {
+    new Clients().run();
+  }
+
+  let tools = document.querySelector('.js-tools');
+  if (tools) {
+    new Tools().run();
+  }
 
   // document.querySelectorAll('.js-slider').forEach((item) => {
   //   new Slider(item).run();
@@ -55,6 +72,6 @@ window.onload = function() {
   //   new Counter(item).run();
   // });
 
-  // new Modal().run();
+  new Modal().run();
   
 };

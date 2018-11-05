@@ -1,0 +1,30 @@
+.c-breadcrumbs
+  display: flex
+  margin-bottom: -10px
+  flex-wrap: wrap
+
+  +media-mx(1200px)
+    margin-bottom: 0
+
+  +media-mx(780px)
+    margin-left: 0
+
+  &__item
+    a
+      color: rgba(153, 153, 153, 255)
+      text-decoration: none
+      transition: all 0.3s
+
+    &:not(:nth-last-of-type(1))::after
+      content: '/'
+      color: rgba(153, 153, 153, 255)
+      margin: 0 5px
+
+    &:nth-last-of-type(1)
+      a
+        color: $color-blue-light
+        text-decoration: underline
+
+    &:hover
+      a
+        color: $color-blue-light

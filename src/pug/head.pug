@@ -59,7 +59,8 @@ html(lang='ru')
 		link(rel='icon' href='img/favicon/adamant32x32.png' sizes='32x32')
 		link(href='css/main.css' rel='stylesheet' )
 		link(href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet')
-		script(async src='js/main.js')
+		script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmbMXDyKO6qmfgN3gL4LVXAPncLcM-5jQ&amp;callback=initMap")
+		script(async defer src='js/main.js')
 
 	body
 		.hidden
@@ -110,7 +111,7 @@ html(lang='ru')
 		header.header.js-header
 			.wrap
 				a.header__logo(href='/')
-					img(src='img/adamant/adamant.svg' idth='154' height='47' alt='Логотип Adamant Media Group')
+					img(src='img/adamant/adamant.svg' width='154' height='47' alt='Логотип Adamant Media Group')
 
 				a.header__menu-btn.js-menu-btn(href="javascript:void(0)")
 					<svg class="header__menu-icon" width="26" height="24">
@@ -124,9 +125,9 @@ html(lang='ru')
 					a.nav__item.js-menu-item(href='#methods') методики
 					a.nav__item.js-menu-item(href='#cases') кейсы
 					a.nav__item.js-menu-item(href='#clients') клиенты
-					a.nav__item.js-menu-item(href='#contact') контакты
+					a.nav__item.js-menu-item(href='#footer') контакты
 
-				a.c-btn.c-btn--main--icon--white.header__btn(href='tel:+74991120777').
+				a.c-btn.c-btn--main--icon--phone.header__btn(href='tel:+74991120777').
 					<svg class="header__phone-icon" width="25" height="22">
 						<use xlink:href="#icon-phone"></use>
 					</svg>

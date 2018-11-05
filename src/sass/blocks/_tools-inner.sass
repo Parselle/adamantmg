@@ -1,0 +1,69 @@
+.tools-inner
+	background: url('../img/tools/background.jpg') center no-repeat
+	background-size: cover
+
+	.wrap
+		padding-left: 15px
+
+	&__title
+		margin-left: 0
+	
+	&__list
+		width: 100%
+		display: grid
+		grid-template-columns: auto
+		grid-gap: 5px
+
+	.list
+		&__item
+			display: grid
+			transition: all 0.3s
+
+			&.active
+				.list__header
+					background: $color-blue
+
+				.list__icon
+					fill: white
+
+				.list__title
+					color: white
+
+			&:hover
+				.list__header
+					background: $color-blue
+				
+				.list__icon
+					fill: white
+
+				.list__title
+					color: white
+
+		&__header
+			display: grid
+			background: rgba($color-blue-light, 0.2)
+			grid-template-columns: auto auto
+			grid-gap: 15px
+			justify-items: start
+			justify-content: start
+			align-content: center
+			align-items: center
+			padding: 10px 15px
+			cursor: pointer
+			transition: all 0.3s
+			min-height: 66px
+
+		&__icon
+			fill: $color-blue-light
+
+		&__title
+			font-weight: bold
+	 
+		&__article
+			display: grid
+			grid-gap: 15px
+			padding: 10px 25px
+
+		.article
+			&__title
+				font-weight: bold
