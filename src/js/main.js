@@ -12,7 +12,7 @@ window.onload = function() {
 
   window.initMap = initMap;
 
-  new SmoothScroll('a[href*="#"]', {
+  new SmoothScroll('*[href*="#"]', {
     speed: 800,
     easing: 'easeInOutCubic',
     ignore: 'a[data-scroll-ignore]',
