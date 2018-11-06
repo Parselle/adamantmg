@@ -7,6 +7,8 @@ import Clients from './components/Clients';
 import initMap from './components/Map';
 import Modal from './components/Modal';
 import Tools from './components/Tools';
+import Team from './components/Team';
+import Tabs from './components/Tabs';
 
 window.onload = function() {
 
@@ -58,6 +60,16 @@ window.onload = function() {
   let tools = document.querySelector('.js-tools');
   if (tools) {
     new Tools().run();
+  }
+
+  let team = document.querySelector('.js-team');
+  if (team) {
+    new Team().run();
+  }
+
+  let tabs = document.querySelector('.js-tabs');
+  if (tabs) {
+    new Tabs().run();
   }
 
   // document.querySelectorAll('.js-slider').forEach((item) => {

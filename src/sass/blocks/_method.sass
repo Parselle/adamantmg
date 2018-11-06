@@ -1,0 +1,146 @@
+.method
+  .wrap
+    grid-gap: 40px
+    padding-left: 15px
+
+  &__title
+    margin-left: 0
+
+  &__breadcrumbs
+    padding-left: 190px
+
+  &__preview
+    display: grid
+    grid-template-columns: 750px auto
+
+    .preview
+      &__article
+        display: grid
+        align-content: start
+        align-items: start
+        padding: 45px 41px
+        background: $color-blue-light
+        grid-gap: 30px
+      
+      &__title
+        color: white
+        font-weight: bold
+
+      &__text
+        color: white
+
+  &__article
+    display: grid
+    align-content: start
+    align-items: start
+    grid-template-columns: 360px auto
+    grid-gap: 30px
+
+    .article
+      &__wrap
+        display: grid
+        grid-gap: 30px
+
+      &__number,
+      &__title
+        color: $color-blue-dark
+        font-weight: bold
+
+      &__content
+        display: grid
+        grid-gap: 20px
+
+  &__tabs
+    display: grid
+    align-content: start
+    align-items: start
+    grid-gap: 40px
+
+  .tabs
+    &__nav
+      display: grid
+      align-content: end
+      align-items: end
+      justify-items: start
+      justify-content: start
+      grid-template-columns: repeat(4, minmax(100px, auto))
+      grid-gap: 50px
+      padding: 0 40px
+      border-bottom: 2px solid #dddddd
+
+    &__btn
+      display: grid
+      justify-items: center
+      width: auto
+      padding-bottom: 20px
+      margin-bottom: -2px
+      font-weight: bold
+      color: $color-blue-light
+      text-decoration: none
+      font-size: 18px
+      border-bottom: 5px solid transparent
+      transition: all 0.1s
+
+      &:hover
+        border-bottom-color: $color-blue-light
+
+      &.active
+        border-bottom-color: $color-blue-dark
+        color: $color-blue-dark
+
+    &__plates
+      display: grid
+      grid-template-columns: repeat(auto-fit, minmax(200px, 350px))
+      grid-gap: 40px 30px
+      opacity: 0
+      height: 0
+      position: absolute
+      left: -1000px
+
+      &.active
+        position: unset
+        left: 0
+        opacity: 1
+        height: auto
+
+      .plates
+        &__item
+          display: grid
+          grid-gap: 30px
+
+        &__header
+          position: relative
+          display: grid
+          align-content: end
+          align-items: end
+          grid-template-columns: 69px auto
+          grid-gap: 30px
+          
+          &::before
+            position: absolute
+            top: 0
+            left: 0
+            content: ''
+            display: grid
+            width: 69px
+            height: 11px
+            background: $color-blue-light
+
+        &__number
+          font-weight: bold
+          color: $color-blue-light
+          line-height: 0.8
+
+        &__content
+          display: grid
+          align-content: start
+          align-items: start
+          grid-gap: 20px
+
+        &__title
+          color: $color-blue-dark
+          font-weight: bold
+          font-size: 16px
+
+        &__text
+          font-size: 16px

@@ -15,13 +15,14 @@
 
   .plates
     &__item
-      position: auto
+      position: relative
       display: grid
       grid-gap: 15px
       justify-items: center
       align-items: start
       align-content: start
       transition: all 0.5s
+      padding-bottom: 20px
 
       &.hidden
         visibility: hidden
@@ -30,14 +31,36 @@
         position: absolute
         top: 0
 
+      &:hover > .plates__img
+        filter: grayscale(0)
+
+    &__img
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      pointer-events: none
+      transition: all 0.3s
+
     &__link
       color: $color-dark
       font-size: 12px
       font-weight: bold
       transition: all 0.3s
+      position: absolute
+      bottom: 0
+      height: 100%
+      width: 100%
+      display: grid
+      align-content: end
+      align-items: end
+      justify-content: center
+      justify-items: center
+      z-index: 50
 
       +on-event
         color: $color-blue-light
+        
+      &:hover + .plates__img
+        filter: grayscale(0)
 
   &__btn
     display: grid
@@ -52,7 +75,6 @@
     line-height: 0.8
     justify-self: center
     transition: all 0.3s
-    margin-top: 20px
 
     +on-event
       color: $color-blue-light

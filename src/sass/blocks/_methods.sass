@@ -39,6 +39,11 @@
       +media-mx(660px)
         height: 220px
 
+      +mod('--small')
+        .plates__img
+          transform: scale(0.8)
+          right: 10px
+
       &:hover
         border-color: $color-blue-light
         box-shadow: 0 0 0 1px $color-blue-light

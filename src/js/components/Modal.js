@@ -1,6 +1,5 @@
 export default class Modal {
-  constructor(obj) {
-    this.obj = obj;
+  constructor() {
     this.closeBtn;
   }
 

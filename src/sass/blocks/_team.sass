@@ -1,0 +1,150 @@
+.team
+	&__content
+		display: grid
+		grid-template-columns: minmax(200px, 520px) minmax(200px, 360px)
+		grid-gap: 65px
+		align-content: start
+		align-items: start
+		justify-content: center
+
+		+media-mx(1000px)
+			grid-template-columns: auto
+			grid-gap: 44px
+
+	&__leaders
+		display: grid
+		align-content: start
+		align-items: start
+		grid-gap: 30px
+
+		.leaders
+			&__title
+				color: $color-blue-dark
+				font-weight: bold
+				grid-column: 1 / -1
+
+				+media-mx(1000px)
+					text-align: center
+
+	&__block
+		display: grid
+		grid-template-columns: 220px auto
+
+		+mod('--small')
+			grid-template-columns: 130px auto
+
+			+media-mx(500px)
+				grid-template-columns: 130px auto
+				justify-items: unset
+				justify-content: unset
+
+			.block
+				&__content
+					padding: 22px 34px
+					height: 130px
+
+					+media-mx(1000px)
+						padding: 22px 5px 22px 20px
+				
+		+media-mx(500px)
+			grid-template-columns: 220px
+			justify-items: center
+			justify-content: center
+
+		.block
+			&__content
+				display: grid
+				grid-gap: 15px
+				justify-items: start
+				align-content: start
+				align-items: start
+				padding: 40px 30px
+				border: 1px solid #cccccc
+				border-left: 0
+
+				+media-mx(1000px)
+					border-left: unset
+					border: 1px solid #cccccc
+					padding: 25px 15px
+					grid-gap: 10px
+
+			&__title
+				font-weight: bold
+
+			&__desc,
+			&__text
+			font-size: 16px
+
+			&__desc
+				color: rgba(153, 153, 153, 255);
+				font-size: 14px
+
+			&__text
+				display: grid
+				grid-gap: 10px
+
+				&::before
+					content: url('../img/team/line.svg')
+
+	&__people
+		position: relative
+		display: grid
+		align-content: start
+		align-items: start
+		grid-gap: 30px
+		overflow-x: hidden
+		overflow-y: hidden
+
+		.people
+			&__title
+				+media-mx(1000px)
+					text-align: center
+
+		&.end
+			&::after
+				opacity: 0
+
+		&::after
+			content: url('../img/team/shadow.png')
+			display: grid
+			position: absolute
+			bottom: -5px
+			z-index: 100
+			opacity: 0.2
+			transition: all 0.3s
+
+	&__blocks
+		max-height: 415px
+		overflow: hidden
+
+	.blocks
+		&__view
+			display: grid
+			align-content: start
+			align-items: start
+			grid-gap: 30px
+			//height: 100%
+			transition: all 0.4s
+
+		&__control
+			position: absolute
+			right: 20px
+			bottom: 30px
+			display: grid
+			grid-gap: 18px
+
+			.control
+				&__btn
+					display: grid
+					width: 50px
+					height: 50px
+					background: $color-purple url('../img/team/arrow.svg') center no-repeat
+					border-radius: 50%
+					opacity: 0.3
+					transition: all 0.3s
+
+					&:hover
+						opacity: 0.8
+
+				&__btn--bottom
+					transform: rotate(180deg)

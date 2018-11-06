@@ -1,7 +1,7 @@
 .c-modal
   position: fixed
   top: 0
-  display: none
+  display: grid
   justify-items: center
   align-content: start
   width: 100%
@@ -11,10 +11,13 @@
   background: rgba(0, 0, 0, 0.6)
   overflow: scroll
   z-index: 200
+  opacity: 0
+  z-index: -1
+  transition: all 0.3s
 
   &__content
     display: grid
-    margin-bottom: 20px
+    margin-bottom: 50px
     background: white
 
   .content
@@ -32,7 +35,9 @@
       color: white
 
   &.active
-    display: grid
+    //display: grid
+    z-index: 200
+    opacity: 1
 
   &__close
     width: 20px

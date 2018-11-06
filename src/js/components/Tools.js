@@ -15,7 +15,7 @@ export default class Tools {
   }
   
   showItem(item) {
-    this.hideAll();
+    //this.hideAll();
     item.querySelector('.js-tools-header').classList.add('active');
     item.querySelector('.js-tools-article').classList.add('active');
 
@@ -28,7 +28,7 @@ export default class Tools {
         ignore: 'a[data-scroll-ignore]',
         offset: 140
       });
-    }, 1000);
+    }, 10);
   }
 
   run() {
