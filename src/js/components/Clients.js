@@ -12,7 +12,7 @@ export default class Clients {
       item.classList.remove('hidden');
     });
 
-    this.clientsBtn.remove();
+    this.clientsBtn.classList.add('hidden');
   }
 
   

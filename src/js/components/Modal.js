@@ -16,12 +16,14 @@ export default class Modal {
     document.querySelectorAll('*[data-modal*="#"]').forEach((trigger) => {
       trigger.addEventListener('click', (e) => {
         this.showModal(e.target);
+        document.body.classList.add('active');
       });
     });
 
     document.querySelectorAll('*[data-modal="close"]').forEach((trigger) => {
       trigger.addEventListener('click', (e) => {
         this.closeModal(e.target);
+        document.body.classList.remove('active');
       });
     });
 

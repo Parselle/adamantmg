@@ -15,27 +15,35 @@ export default class Tools {
   }
   
   showItem(item) {
-    //this.hideAll();
     item.querySelector('.js-tools-header').classList.add('active');
     item.querySelector('.js-tools-article').classList.add('active');
 
-    let scroll = new SmoothScroll();
-    let anchor = this.tools.querySelector('#' + item.getAttribute('id'));
-    setTimeout(() => {
-      scroll.animateScroll(anchor, {}, {
-        speed: 800,
-        easing: 'easeInOutCubic',
-        ignore: 'a[data-scroll-ignore]',
-        offset: 140
-      });
-    }, 10);
+    // let scroll = new SmoothScroll();
+    // let anchor = this.tools.querySelector('#' + item.getAttribute('id'));
+    // setTimeout(() => {
+    //   scroll.animateScroll(anchor, {}, {
+    //     speed: 800,
+    //     easing: 'easeInOutCubic',
+    //     ignore: 'a[data-scroll-ignore]',
+    //     offset: 140
+    //   });
+    // }, 10);
+  }
+
+  hideItem(item) {
+    item.querySelector('.js-tools-header').classList.remove('active');
+    item.querySelector('.js-tools-article').classList.remove('active');
   }
 
   run() {
     this.headers.forEach((item) => {
       item.addEventListener('click', (e) => {
         let target = e.target;
-        this.showItem(target.parentNode);
+        if (target.classList.contains('active')) {
+          this.hideItem(target.parentNode);
+        } else {
+          this.showItem(target.parentNode);
+        }
       });
     });
   }

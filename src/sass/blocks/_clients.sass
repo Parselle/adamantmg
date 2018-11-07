@@ -1,80 +1,95 @@
 .clients
 
-  .wrap
-    padding-left: 15px
+	.wrap
+		padding-left: 15px
 
-  &__title
-    margin-left: 0
+	&__title
+		margin-left: 0
 
-  &__plates
-    width: 100%
-    display: grid
-    grid-template-columns: repeat(auto-fill, 160px)
-    grid-gap: 30px
-    justify-self: center
+	&__plates
+		width: 100%
+		display: grid
+		grid-template-columns: repeat(auto-fill, 160px)
+		grid-gap: 30px
+		justify-self: center
 
-  .plates
-    &__item
-      position: relative
-      display: grid
-      grid-gap: 15px
-      justify-items: center
-      align-items: start
-      align-content: start
-      transition: all 0.5s
-      padding-bottom: 20px
+		+media-mx(880px)
+			grid-template-columns: repeat(4, 1fr)
+			justify-items: center
+			justify-content: center
 
-      &.hidden
-        visibility: hidden
-        opacity: 0
-        height: 0
-        position: absolute
-        top: 0
+		+media-mx(768px)
+			grid-template-columns: 1fr 1fr
+			grid-gap: 20px
 
-      &:hover > .plates__img
-        filter: grayscale(0)
+	.plates
+		&__item
+			position: relative
+			display: grid
+			grid-gap: 15px
+			justify-items: center
+			align-items: start
+			align-content: start
+			transition: all 1.5s
+			padding-bottom: 20px
 
-    &__img
-      -webkit-filter: grayscale(100%);
-      filter: grayscale(100%);
-      pointer-events: none
-      transition: all 0.3s
+			&.hidden
+				visibility: hidden
+				opacity: 0
+				height: 0
+				position: absolute
+				top: 0
 
-    &__link
-      color: $color-dark
-      font-size: 12px
-      font-weight: bold
-      transition: all 0.3s
-      position: absolute
-      bottom: 0
-      height: 100%
-      width: 100%
-      display: grid
-      align-content: end
-      align-items: end
-      justify-content: center
-      justify-items: center
-      z-index: 50
+			&:hover > .plates__img
+				filter: grayscale(0)
 
-      +on-event
-        color: $color-blue-light
-        
-      &:hover + .plates__img
-        filter: grayscale(0)
+		&__img
+			-webkit-filter: grayscale(100%);
+			filter: grayscale(100%);
+			pointer-events: none
+			transition: all 0.3s
 
-  &__btn
-    display: grid
-    grid-template-columns: 20px auto
-    grid-gap: 15px
-    align-content: center
-    align-items: center
-    fill: $color-dark
-    font-weight: bold
-    color: $color-dark
-    texx-decoration: none
-    line-height: 0.8
-    justify-self: center
-    transition: all 0.3s
+		&__link
+			color: $color-dark
+			font-size: 12px
+			font-weight: bold
+			transition: all 0.3s
+			position: absolute
+			bottom: 0
+			height: 100%
+			width: 100%
+			display: grid
+			align-content: end
+			align-items: end
+			justify-content: center
+			justify-items: center
+			z-index: 50
 
-    +on-event
-      color: $color-blue-light
+			+on-event
+				color: $color-blue-light
+				
+			&:hover + .plates__img
+				filter: grayscale(0)
+
+	&__btn
+		display: grid
+		grid-template-columns: 20px auto
+		grid-gap: 15px
+		align-content: center
+		align-items: center
+		fill: $color-dark
+		font-weight: bold
+		color: $color-dark
+		texx-decoration: none
+		line-height: 0.8
+		justify-self: center
+		transition: all 0.5s
+
+		+on-event
+			color: $color-blue-light
+
+		+media-mx(768px)
+			margin-top: 20px
+
+		&.hidden
+			opacity: 0

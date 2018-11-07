@@ -13,6 +13,10 @@
 		display: grid
 		grid-template-columns: auto
 		grid-gap: 5px
+		padding-left: 190px
+
+		+media-mx(1200px)
+			padding-left: 0
 
 	.list
 		&__item
@@ -21,7 +25,7 @@
 		&__header
 			display: grid
 			background: rgba($color-blue-light, 0.2)
-			grid-template-columns: auto auto
+			grid-template-columns: 54px auto
 			grid-gap: 15px
 			justify-items: start
 			justify-content: start
@@ -30,7 +34,7 @@
 			padding: 10px 15px
 			cursor: pointer
 			min-height: 66px
-			transition: all 0.5s
+			transition: all 1s
 
 			&.active
 				background: $color-blue-light
@@ -69,9 +73,18 @@
 			padding: 0 25px
 
 			&.active
-				max-height: 700px
-				padding: 10px 25px
+				max-height: 2500px
+				padding: 20px 70px
+
+				+media-mx(1200px)
+					padding: 20px
 
 			.article
 				&__title
 					font-weight: bold
+
+	&__btn
+		margin-left: 190px
+
+		+media-mx(1200px)
+			margin-left: 0

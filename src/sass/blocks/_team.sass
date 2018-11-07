@@ -30,42 +30,29 @@
 		display: grid
 		grid-template-columns: 220px auto
 
-		+mod('--small')
-			grid-template-columns: 130px auto
-
-			+media-mx(500px)
-				grid-template-columns: 130px auto
-				justify-items: unset
-				justify-content: unset
-
-			.block
-				&__content
-					padding: 22px 34px
-					height: 130px
-
-					+media-mx(1000px)
-						padding: 22px 5px 22px 20px
-				
 		+media-mx(500px)
 			grid-template-columns: 220px
 			justify-items: center
 			justify-content: center
 
 		.block
+			&__img
+				width: 220px
+				height: 220px
+
 			&__content
 				display: grid
 				grid-gap: 15px
 				justify-items: start
 				align-content: start
 				align-items: start
-				padding: 40px 30px
+				padding: 20px 20px
 				border: 1px solid #cccccc
-				border-left: 0
+				//border-left: 0
 
 				+media-mx(1000px)
 					border-left: unset
 					border: 1px solid #cccccc
-					padding: 25px 15px
 					grid-gap: 10px
 
 			&__title
@@ -85,6 +72,27 @@
 
 				&::before
 					content: url('../img/team/line.svg')
+
+
+		+mod('--small')
+			grid-template-columns: 130px auto
+
+			+media-mx(500px)
+				grid-template-columns: 130px auto
+				justify-items: unset
+				justify-content: unset
+
+			.block
+				&__img
+					width: 130px
+					height: 130px
+
+				&__content
+					padding: 20px 20px
+					height: 130px
+
+					+media-mx(1000px)
+						padding: 22px 5px 22px 20px
 
 	&__people
 		position: relative

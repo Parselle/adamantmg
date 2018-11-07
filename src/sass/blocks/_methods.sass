@@ -44,6 +44,9 @@
           transform: scale(0.8)
           right: 10px
 
+          +media-mx(1200px)
+            transform: none
+
       &:hover
         border-color: $color-blue-light
         box-shadow: 0 0 0 1px $color-blue-light
@@ -74,6 +77,9 @@
       +media-mx(1200px)
         top: 15px
         right: 15px
+
+      +media-mx(500px)
+        transform: scale(0.7) !important
 
     &__hover
       display: grid

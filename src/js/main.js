@@ -10,7 +10,14 @@ import Tools from './components/Tools';
 import Team from './components/Team';
 import Tabs from './components/Tabs';
 
+let preloader = document.querySelector('.js-preloader');
+
 window.onload = function() {
+
+  setTimeout(() => {
+    preloader.remove();
+    document.body.classList.remove('active');
+  }, 750);
 
   window.initMap = initMap;
 
