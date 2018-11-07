@@ -8,7 +8,7 @@
 		justify-content: center
 
 		+media-mx(1000px)
-			grid-template-columns: auto
+			grid-template-columns: 100%
 			grid-gap: 44px
 
 	&__leaders
@@ -122,16 +122,19 @@
 			transition: all 0.3s
 
 	&__blocks
-		max-height: 415px
+		height: 415px
 		overflow: hidden
+		position: relative
 
 	.blocks
 		&__view
+			position: absolute
+			left: 0
+			top: 0
 			display: grid
 			align-content: start
 			align-items: start
 			grid-gap: 30px
-			//height: 100%
 			transition: all 0.4s
 
 		&__control

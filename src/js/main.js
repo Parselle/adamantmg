@@ -4,7 +4,6 @@ import Menu from './components/Menu';
 import './components/Particles';
 import Asteroids from './components/Asteroids';
 import Clients from './components/Clients';
-import initMap from './components/Map';
 import Modal from './components/Modal';
 import Tools from './components/Tools';
 import Team from './components/Team';
@@ -18,8 +17,6 @@ window.onload = function() {
     preloader.remove();
     document.body.classList.remove('active');
   }, 750);
-
-  window.initMap = initMap;
 
   new SmoothScroll('*[href*="#"]', {
     speed: 800,

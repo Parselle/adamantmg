@@ -76,3 +76,43 @@ section#copyright.copyright
         a.list__link(href='/agreement.php' target='_blank') Пользовательское соглашение
       .list__item
         a.list__link(href='/personal.php' target='_blank') Согласие на обработкуперсональных данных
+
+script.
+  'use strict';
+  const contactsMap = document.querySelector('.js-map');
+
+  function initMap() {
+    const location = {lat: 55.629320, lng: 37.621216};
+    const mapOptions = {
+      center: new google.maps.LatLng(location),
+      zoom: 16,
+      disableDefaultUI: true
+    };
+
+    const map = new google.maps.Map(contactsMap, mapOptions);
+    map.panBy(-7, -29);
+
+    const markerImage = new google.maps.MarkerImage(
+      'img/contacts/map-adamant.svg',
+      new google.maps.Size(114, 42)
+    );
+
+    new google.maps.Marker({
+      position: location,
+      map: map,
+      icon: markerImage
+    });
+
+    window.addEventListener('resize', () => {
+      map.setCenter(location);
+      map.setZoom(16);
+      map.panBy(-7, -29);
+    });
+  }
+  //- function initMap() {
+  //-   var location = {lat: 55.629320, lng: 37.621216};
+  //-   var map = new google.maps.Map(
+  //-       document.querySelector('.js-map'), {zoom: 16, center: location});
+  //-   var marker = new google.maps.Marker({position: location, map: map});
+  //- }
+script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmbMXDyKO6qmfgN3gL4LVXAPncLcM-5jQ&callback=initMap")

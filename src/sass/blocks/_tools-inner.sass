@@ -1,5 +1,5 @@
 .tools-inner
-	background: url('../img/tools/background.jpg') center no-repeat
+	background: url('../img/tools/background.jpg') center top no-repeat
 	background-size: 1920px
 
 	.wrap
@@ -34,7 +34,7 @@
 			padding: 10px 15px
 			cursor: pointer
 			min-height: 66px
-			transition: all 1s
+			transition: all 0.3s
 
 			&.active
 				background: $color-blue-light
@@ -67,17 +67,23 @@
 			align-content: start
 			align-items: start
 			grid-gap: 15px
-			transition: all 1s
+			transition: all 0.5s
 			overflow: hidden
-			max-height: 0
-			padding: 0 25px
+			padding: 0 70px
+			opacity: 0
+			visibility: hidden
+			position: absolute
+			transition: opacity 0.5s
+
+			+media-mx(1200px)
+				padding: 0 20px
 
 			&.active
-				max-height: 2500px
-				padding: 20px 70px
-
-				+media-mx(1200px)
-					padding: 20px
+				position: relative
+				visibility: visible
+				opacity: 1
+				padding-top: 20px
+				padding-bottom: 20px
 
 			.article
 				&__title

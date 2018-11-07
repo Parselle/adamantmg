@@ -18,16 +18,16 @@ export default class Tools {
     item.querySelector('.js-tools-header').classList.add('active');
     item.querySelector('.js-tools-article').classList.add('active');
 
-    // let scroll = new SmoothScroll();
-    // let anchor = this.tools.querySelector('#' + item.getAttribute('id'));
-    // setTimeout(() => {
-    //   scroll.animateScroll(anchor, {}, {
-    //     speed: 800,
-    //     easing: 'easeInOutCubic',
-    //     ignore: 'a[data-scroll-ignore]',
-    //     offset: 140
-    //   });
-    // }, 10);
+    let scroll = new SmoothScroll();
+    let anchor = this.tools.querySelector('#' + item.getAttribute('id'));
+    setTimeout(() => {
+      scroll.animateScroll(anchor, {}, {
+        speed: 800,
+        easing: 'easeInOutCubic',
+        ignore: 'a[data-scroll-ignore]',
+        offset: 80
+      });
+    }, 10);
   }
 
   hideItem(item) {

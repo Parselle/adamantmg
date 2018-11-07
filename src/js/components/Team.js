@@ -15,13 +15,13 @@ export default class Team {
   slideBottom() {
     if (this.marginTop >= -(this.viewHeight - this.maxHeight - 60)) {
       this.marginTop -= this.itemHeight;
-      this.view.style.marginTop = `${this.marginTop}px`;
+      this.view.style.top = `${this.marginTop}px`;
       if (this.marginTop <= -(this.viewHeight - this.maxHeight)) {
         this.team.classList.add('end');
       }
     } else {
       this.marginTop = -(this.viewHeight - this.maxHeight);
-      this.view.style.marginTop = `${this.marginTop}px`;
+      this.view.style.top = `${this.marginTop}px`;
       this.team.classList.add('end');
     }
   }
@@ -29,11 +29,11 @@ export default class Team {
   slideTop() {
     if (this.marginTop < 0 - 60) {
       this.marginTop += this.itemHeight;
-      this.view.style.marginTop = `${this.marginTop}px`;
+      this.view.style.top = `${this.marginTop}px`;
       this.team.classList.remove('end');
     } else {
       this.marginTop = 0;
-      this.view.style.marginTop = `${this.marginTop}px`;
+      this.view.style.top = `${this.marginTop}px`;
     }
   }
 
