@@ -1,0 +1,102 @@
+include head-page
+
+section#method.section.method
+  .wrap
+    h1.section__title.method__title.line МЕТОДИКИ
+
+    ul.c-breadcrumbs.method__breadcrumbs
+      li.c-breadcrumbs__item
+        a(href="/") Главная
+      li.c-breadcrumbs__item
+        a(href="/index.html#methods") Методики
+      li.c-breadcrumbs__item
+        a(href="") Лендинги и креативы
+
+    .method__preview
+      iframe.preview__video(
+        width="750"
+        height="430"
+        src="https://www.youtube.com/embed/JsQlysPRoGw?showinfo=0"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      )
+      
+      article.preview__article
+        h5.preview__title Заголовок
+        p.preview__text.
+          Это ознакомительное видео про привлечение клиентов,
+          посмотрите какое оно замечательное
+
+    article.method__article
+      img.article__img(src="img/methods/1/article.png", alt="Картинка статьи")
+      .article__wrap
+        h3.article__number 04.
+        h3.article__title Лендинги и креативы
+
+        .article__content
+          p.article__text.
+            Лендинги - это одностраничные интернет-ресурсы с возможностью совершения
+            единственного целевого действия (приобретения товара, заказа услуги и т.п.),
+            которые в настоящее время считаются одним из наиболее эффективных инструментов
+            реализации маркетинговой стратегии. Результативность модели «одна цель для
+            одной страницы» подтверждена многочисленными исследованиями и сплит-тестированием.
+
+          p.article__text.
+            Лендинги, разработанные компанией Adamant MG, успешно используются медицинскими
+            центрами, стоматологическими и космологическими клинками для решения задач:<br>
+            - тестирования востребованности и рентабельности услуг;<br>
+            - презентации продуктов;<br>
+            - расширения существующей и создания новой клиентской базы;<br>
+            - анонсов и продвижения акций и мероприятий различного уровня.
+
+          p.article__text.
+            Высокие конверсионные показатели лендингов Adamant MG достигаются за
+            счет точности рекламного соответствия, характеристик коэффициента
+            внимания 1:1 и простоте сплит-тестирования.
+
+    .method__tabs.js-tabs
+      //- .tabs__nav-wrap
+      //-   .tabs__nav
+      //-     a.tabs__btn.active(href='javascript:void(0)' data-tab='#tab-1') Привлечение клиентов
+
+      #tab-1.tabs__plates.js-tabs-plates.active
+        .plates__item
+          .plates__header
+            h3.plates__number 01.
+            img.plates__img(src="img/methods/1/1.png", alt="")
+          .plates__content
+            p.plates__title Для чего нужен лендинг
+            p.plates__text.
+              Лендинги служат «трамплинами» для бизнеса, максимально лаконично
+              и доступно раскрывающими преимущества уникального торгового
+              предложения компании потенциальному покупателю и «подталкивающими»
+              его к совершению выбранного целевого действия.
+
+        .plates__item
+          .plates__header
+            h3.plates__number 02.
+            img.plates__img(src="img/methods/1/1.png", alt="")
+          .plates__content
+            p.plates__title Правильная структура лендинга
+            p.plates__text.
+              Базовый комплекс элементов включает в себя основной заголовок
+              с подзаголовком, мощное УТП, индикаторы доверия, призыв к действию,
+              контакты и форму захвата. Дополнительными блоками могут служить
+              разделы «О нас», «Преимущества продукта» и «Отзывы».
+
+        .plates__item
+          .plates__header
+            h3.plates__number 03.
+            img.plates__img(src="img/methods/1/1.png", alt="")
+          .plates__content
+            p.plates__title Тестирование и эффективность
+            p.plates__text.
+              Сплит-тестирование позволяет определить и использовать оптимальный
+              формат маркетингового сообщения, который увеличивает конверсию.
+              Для максимальной эффективности лендинга рекомендуется разработать
+              адаптивную страницу, включить в нее высокочастотные запросы и
+              тщательно заполнить мета-данные, настроить инструменты аналитики
+              и своевременно оптимизировать контент.
+
+include footer

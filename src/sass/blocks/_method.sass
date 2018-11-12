@@ -146,6 +146,7 @@
     &__plates
       display: grid
       grid-template-columns: repeat(auto-fit, minmax(200px, 350px))
+      align-items: start
       grid-gap: 40px 30px
       opacity: 0
       height: 0
@@ -153,6 +154,7 @@
       left: -1000px
       width: 100%
       max-width: 100%
+      z-index: -1
 
       +media-mx(1150px)
         grid-template-columns: repeat(2, minmax(200px, 350px))
@@ -166,8 +168,15 @@
         left: 0
         opacity: 1
         height: auto
+        z-index: 1
 
       .plates
+        &__article
+          display: grid
+          grid-gap: 20px
+          grid-column: 1 / -1
+          margin-top: -25px
+
         &__item
           display: grid
           grid-gap: 30px
