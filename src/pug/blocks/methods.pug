@@ -1,35 +1,53 @@
+-
+  var methods_list1 = [
+      {
+        'title': 'Лидогенерация',
+        'img': 'img/methods/1/preview.svg',
+        'href': 'method1.html'
+      },
+      {
+        'title': 'Реклама в интернете',
+        'img': 'img/methods/2/preview.svg',
+        'href': 'method2.html'
+      }
+  ];
+
+  var methods_list2 = [
+      {
+        'title': 'Привлечение клиентов',
+        'img': 'img/methods/3/preview.svg',
+        'href': 'method3.html'
+      },
+      {
+        'title': 'Лендинги и креативы',
+        'img': 'img/methods/4/preview.svg',
+        'href': 'method4.html'
+      },
+      {
+        'title': 'Оценка эффективности',
+        'img': 'img/methods/5/preview.svg',
+        'href': 'method5.html'
+      }
+  ];
+
 section#methods.section.methods
   .wrap
     h1.section__title.methods__title.line МЕТОДИКИ
 
     .methods__plates
       .plates__double-row
-        .plates__item.plates__item
-          img.plates__img(src="img/methods/methods-1.svg", alt="Иконка метода")
-          a.plates__hover(href="method1.html")
-            p.plates__text Лидогенерация
-
-        .plates__item.plates__item
-          img.plates__img(src="img/methods/methods-2.svg", alt="Иконка метода")
-          a.plates__hover(href="method2.html")
-            p.plates__text Реклама в интернете
-
-      .plates__item.plates__item--small
-        img.plates__img(src="img/methods/methods-3.svg", alt="Иконка метода")
-        a.plates__hover(href="method3.html")
-          p.plates__text Привлечение клиентов
-
-      .plates__item.plates__item--small
-        img.plates__img(src="img/methods/methods-4.svg", alt="Иконка метода")
-        a.plates__hover(href="method4.html")
-          p.plates__text Лендинги и креативы
-
-
-      .plates__item.plates__item--small
-        img.plates__img(src="img/methods/methods-5.svg", alt="Иконка метода")
-        a.plates__hover(href="method5.html")
-          p.plates__text Оценка эффективности
-
+        each method in methods_list1
+          .plates__item
+            img.plates__img(src= method.img, alt= method.title)
+            a.plates__hover(href= method.href)
+              p.plates__text= method.title
       
+      each method in methods_list2
+        .plates__item.plates__item--small
+          img.plates__img(src= method.img, alt= method.title)
+          a.plates__hover(href= method.href)
+            p.plates__text= method.title
 
-      
+    a.c-btn.c-btn--arrow--purple.methods__btn(href='methods.html') подробнее
+      svg.c-btn__arrow(width="59" height="15")
+        use(xlink:href="#icon-arrow")

@@ -1,0 +1,113 @@
+include header-page
+ -
+  var tabs_article = [
+    { 
+      'img': 'img/methods/1/preview.svg',
+      'title': 'Лидогенерация для медицинских центров',
+      'text': [
+        `По данным поисковой системы Яндекс, количество запросов, связанных с
+        медицинской тематикой, за последний год возросло на 30%. И это — несмотря
+        на высокий уровень конкуренции в высокотехнологичных бизнес-нишах и ограничения,
+        накладываемые законодательством РФ на рекламу медицинских услуг.`,
+
+        `Как показывает анализ статистики обращений в компанию Adamant MG, для медицинских
+        центров наиболее релевантной целевой аудиторией являются представители двух групп:<br>
+        - 25% пользователей заинтересованы в определенном медицинском сервисе;<br>
+        - 30% разыскивают информацию по врачебной специальности.`,
+
+        `Оставшиеся 45% не являются потенциальными покупателями услуг, т.к. вводят
+        название заболевания или перечисляют симптомы, пытаясь поставить диагноз
+        и решить возникшую проблему самостоятельно.`,
+
+        ` Лидогенерация для медицинских центров, выполненная экспертами Adamant MG,
+        осуществляется на основе определения необходимых параметров  лидов и позволяет:<br>
+        - обеспечить постоянный приток новых пациентов;<br>
+        - повысить управляемость маркетинговых кампаний организации;<br>
+        - превратить расходы на рекламу в окупаемые инвестиции.`
+      ]
+    }
+  ];
+
+  var tabs_items = [
+    {
+      'number':'01.',
+      'img':'img/methods/1/article/article-2-1.png',
+      'title':'Насколько эффективна лидогенерация для медицинских центров',
+      'text': `Лидогенерация демонстрирует прекрасные результаты при продвижении
+              практически всех направлений работы медицинского центра. Максимальная
+              эффективность достигается в сферах диетологии и снижения веса, в пластической
+              хирургии, при продвижении всех видов диагностических, профилактических
+              и реабилитационных процедур и консультаций специалистов.`
+    },
+    {
+      'number':'02.',
+      'img':'img/methods/1/article/article-2-2.png',
+      'title':'С чего начинается лидогенерация для медицинских центров',
+      'text':`На основе вашего уникального торгового предложения (УТП) и предлагаемых акций,
+              специалисты по лидогенерации компании Adamant MG:<br>
+              - подготовят продающий лендинг, адаптируя один из огромной базы наших шаблонов
+              под индивидуальные особенности вашего медицинского центра;<br>
+              - разработают рекламные объявления и баннеры;<br>
+              - определят стоимость лида;<br>
+              - настроят и в течение всего 3 дней запустят рекламную компанию.`
+    }
+  ];
+    
+section#method.section.method
+  .wrap
+    h1.section__title.method__title.line МЕТОДИКИ
+
+    ul.c-breadcrumbs.method__breadcrumbs
+      li.c-breadcrumbs__item
+        a(href="/") Главная
+      li.c-breadcrumbs__item
+        a(href="/index.html#methods") Методики
+      li.c-breadcrumbs__item
+        a(href="") Лидогенерация
+      li.c-breadcrumbs__item
+        a(href="") Для медицинских центров
+
+    //- .method__preview
+    //-   iframe.preview__video(
+    //-     width="750"
+    //-     height="430"
+    //-     src="https://www.youtube.com/embed/JsQlysPRoGw?showinfo=0"
+    //-     frameborder="0"
+    //-     allow="autoplay; encrypted-media"
+    //-     allowfullscreen
+    //-   )
+      
+    //-   article.preview__article
+    //-     h5.preview__title Заголовок
+    //-     p.preview__text.
+    //-       Это ознакомительное видео про привлечение клиентов,
+    //-       посмотрите какое оно замечательное
+
+    .method__tabs
+      .tabs__nav
+        a.tabs__btn(href='method1.html' target='_blank') Лидогенерация
+        a.tabs__btn.active(href='javascript:void(0)' target='_blank') Для медицинских центров
+        a.tabs__btn(href='method1-sub3.html' target='_blank') Для стоматологий
+        a.tabs__btn(href='method1-sub4.html' target='_blank') Для косметологических клиник
+
+    each article in tabs_article
+      article.method__article
+        img.article__img(src= article.img, alt= article.title)
+        .article__wrap
+          h3.article__title= article.title
+
+          .article__content
+            each text in article.text
+              p.article__text !{text}
+
+    .tabs__plates
+      each item in tabs_items
+        .plates__item
+          .plates__header
+            h3.plates__number= item.number
+            img.plates__img(src= item.img, alt= item.title)
+          .plates__content
+            p.plates__title= item.title
+            p.plates__text !{item.text}
+
+include footer

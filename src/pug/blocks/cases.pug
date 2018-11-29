@@ -1,39 +1,60 @@
+-
+  var cases_plates = [
+    {
+      'size': '--1-3',
+      'img': 'img/cases/preview/1.jpg',
+      'href': 'case1.html',
+      'title': 'Ленись и худей'
+    },
+    {
+      'size': '--3-4',
+      'img': 'img/cases/preview/2.jpg',
+      'href': 'case2.html',
+      'title': 'МЮЗ'
+    },
+    {
+      'size': '--1-2',
+      'img': 'img/cases/preview/3.jpg',
+      'href': 'case3.html',
+      'title': 'Acuvue'
+    },
+    {
+      'size': '--2-4',
+      'img': 'img/cases/preview/4.jpg',
+      'href': 'case4.html',
+      'title': 'Код крови'
+    },
+    {
+      'size': '--4-5',
+      'img': 'img/cases/preview/5.jpg',
+      'href': 'case5.html',
+      'title': 'Позвоночник'
+    },
+    {
+      'size': '--2-3',
+      'img': 'img/cases/preview/6.jpg',
+      'href': 'case6.html',
+      'title': 'ЯВольт'
+    },
+    {
+      'size': '--3-5',
+      'img': 'img/cases/preview/7.jpg',
+      'href': 'case7.html',
+      'title': 'Корсеты'
+    },
+  ];
+
 section#cases.section.cases
   .wrap
     h1.section__title.cases__title.line КЕЙСЫ
 
     .cases__plates
-      .plates__item.plates__item--1-3
-        img.plates__img(src="img/cases/preview/1.jpg", alt="Превью кейса")
-        a.plates__hover(href="case1.html")
-          p.plates__text Ленись и худей
+      each item in cases_plates
+        .plates__item(class="plates__item" + item.size)
+          img.plates__img(src= item.img, alt= item.title)
+          a.plates__hover(href= item.href)
+            p.plates__text= item.title
 
-      .plates__item.plates__item--3-4
-        img.plates__img(src="img/cases/preview/2.jpg", alt="Превью кейса")
-        a.plates__hover(href="case2.html")
-          p.plates__text МЮЗ
-
-      .plates__item.plates__item--1-2
-        img.plates__img(src="img/cases/preview/3.jpg", alt="Превью кейса")
-        a.plates__hover(href="case3.html")
-          p.plates__text Acuvue
-
-      .plates__item.plates__item--2-4
-        img.plates__img(src="img/cases/preview/4.jpg", alt="Превью кейса")
-        a.plates__hover(href="case4.html")
-          p.plates__text Код крови
-
-      .plates__item.plates__item--4-5
-        img.plates__img(src="img/cases/preview/5.jpg", alt="Превью кейса")
-        a.plates__hover(href="case5.html")
-          p.plates__text Позвоночник
-
-      .plates__item.plates__item--2-3
-        img.plates__img(src="img/cases/preview/6.jpg", alt="Превью кейса")
-        a.plates__hover(href="case6.html")
-          p.plates__text ЯВольт
-
-      .plates__item.plates__item--3-5
-        img.plates__img(src="img/cases/preview/7.jpg", alt="Превью кейса")
-        a.plates__hover(href="case7.html")
-          p.plates__text Винтажное похудение
+    a.c-btn.c-btn--arrow--purple.cases__btn(href='cases.html') подробнее
+      svg.c-btn__arrow(width="59" height="15")
+        use(xlink:href="#icon-arrow")

@@ -1,0 +1,33 @@
+.cases-inner
+  
+  &__plates
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 40px
+    align-items: start
+
+    +media-mx(1000px)
+      grid-template-columns: auto
+
+  .plates
+    &__img
+      width: 100%
+      height: 180px
+
+      +media-mx(1000px)
+        height: auto
+        
+
+    &__item
+      display: grid
+      align-items: start
+      grid-gap: 10px
+
+    &__title
+      color: $color-blue-dark
+      font-weight: bold
+
+    &__content
+      display: grid
+      align-items: start
+      grid-gap: 5px

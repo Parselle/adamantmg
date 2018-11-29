@@ -13,10 +13,8 @@ let preloader = document.querySelector('.js-preloader');
 
 window.onload = function() {
 
-  setTimeout(() => {
-    preloader.remove();
-    document.body.classList.remove('active');
-  }, 750);
+  preloader.remove();
+  document.body.classList.remove('active');
 
   new SmoothScroll('*[href*="#"]', {
     speed: 800,
@@ -56,10 +54,10 @@ window.onload = function() {
     });
   }
 
-  let clients = document.querySelector('.js-clients');
-  if (clients) {
-    new Clients().run();
-  }
+  // let clients = document.querySelector('.js-clients');
+  // if (clients) {
+  //   new Clients().run();
+  // }
 
   let tools = document.querySelector('.js-tools');
   if (tools) {
@@ -71,10 +69,10 @@ window.onload = function() {
     new Team().run();
   }
 
-  let tabs = document.querySelector('.js-tabs');
-  if (tabs) {
-    new Tabs().run();
-  }
+  // let tabs = document.querySelector('.js-tabs');
+  // if (tabs) {
+  //   new Tabs().run();
+  // }
 
   // document.querySelectorAll('.js-slider').forEach((item) => {
   //   new Slider(item).run();

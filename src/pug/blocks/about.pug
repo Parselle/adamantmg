@@ -1,58 +1,92 @@
-mixin about(index)
-  section#about.section.about
-    .wrap
-      h1.section__title.about__title.line О НАС
+-
+  var about_article = [
+    {
+      'title': 'Adamant — это сверх уровень цифровой сферы',
+      'text': [
+        `Забудьте про super, best и luxury. Репутационное
+        продвижение, повышающее узнаваемость бренда,
+        грамотно разработанная маркетинговая кампания и реклама
+        в социальных сетях — это всего лишь основа, кристалл`,
 
+        `<b>ADAMANT MEDIA GROUP</b> — мы превращаем необработанный
+        алмаз вашей бизнес-идеи в сверкающий бриллиант
+        успешного бренда. Делаем больше, чем от нас ожидают`
+      ]
+    }
+  ];
+
+  var about_stats = [
+    {
+      'img': {
+        'width': '60',
+        'height': '55',
+        'href': '#icon-about-1'
+      },
+      'number': '>5',
+      'ext': '',
+      'text1': 'лет',
+      'text2': 'работы'
+    },
+    {
+      'img': {
+        'width': '59',
+        'height': '55',
+        'href': '#icon-about-2'
+      },
+      'number': '570+',
+      'ext': '',
+      'text1': 'рекламных',
+      'text2': 'кампаний'
+    },
+    {
+      'img': {
+        'width': '59',
+        'height': '54',
+        'href': '#icon-about-3'
+      },
+      'number': '2,5',
+      'ext': 'млн',
+      'text1': 'лидов',
+      'text2': ''
+    },
+    {
+      'img': {
+        'width': '58',
+        'height': '54',
+        'href': '#icon-about-4'
+      },
+      'number': '23',
+      'ext': 'млрд',
+      'text1': 'выручки',
+      'text2': 'у клиентов'
+    },
+  ];
+
+section#about.section.about
+  .wrap
+    h1.section__title.about__title.line О НАС
+
+    each item in about_article
       article.about__article
-        h5.article__title Adamant — это сверх уровень цифровой сферы
+        h5.article__title= item.title
 
-        p.article__text.
-          Забудьте про super, best и luxury. Репутационное
-          продвижение, повышающее узнаваемость бренда,
-          грамотно разработанная маркетинговая кампания и реклама
-          в социальных сетях — это всего лишь основа, кристалл
+        each text in item.text
+          p.article__text !{text}
 
-        p.article__text.
-          <b>ADAMANT MEDIA GROUP</b> — мы превращаем необработанный
-          алмаз вашей бизнес-идеи в сверкающий бриллиант
-          успешного бренда. Делаем больше, чем от нас ожидают
-
-      .about__stats
+    .about__stats
+      each item in about_stats
         .stats__item
-          svg.stats__icon(width="60" height="55")
-            use(xlink:href="#icon-about-1")
+          svg.stats__icon(width= item.img.width height= item.img.height)
+            use(xlink:href= item.img.href)
           .stats__content
-            h1.stats__number >5
-            p.stats__text.
-              лет<br>
-              работы
+            h1.stats__number
+              span= item.number
+              sup= item.ext
+            p.stats__text
+              span= item.text1
+              br
+              span= item.text2
 
-        .stats__item
-          svg.stats__icon(width="59" height="55")
-            use(xlink:href="#icon-about-2")
-          .stats__content
-            h1.stats__number 570+
-            p.stats__text.
-              рекламных<br>
-              кампаний
-
-        .stats__item
-          svg.stats__icon(width="59" height="54")
-            use(xlink:href="#icon-about-3")
-          .stats__content
-            h1.stats__number.
-              2,5<sup>млн</sup>
-            p.stats__text лидов
-
-        .stats__item
-          svg.stats__icon(width="58" height="54")
-            use(xlink:href="#icon-about-4")
-          .stats__content
-            h1.stats__number.
-              23<sup>млрд</sup>
-            p.stats__text.
-              выручки<br>
-              у клиентов
-
-      if block
-        block
+    a.c-btn.c-btn--arrow--purple.about__btn(href='about.html') подробнее
+      svg.c-btn__arrow(width="59" height="15")
+        use(xlink:href="#icon-arrow")

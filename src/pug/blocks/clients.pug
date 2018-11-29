@@ -1,72 +1,102 @@
+-
+  var clients = [
+    {
+      'img': 'img/clients/companies/1.png',
+      'title': 'Медицинский центр Елены Малышевой',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/2.png',
+      'title': 'Московский ювелирный завод',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/3.png',
+      'title': 'Доктор Борменталь',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/4.png',
+      'title': 'Ростелеком',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/5.png',
+      'title': 'Доктор Мартин',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/6.png',
+      'title': 'Витакон',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/7.png',
+      'title': 'Доктор Куренкова',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/8.png',
+      'title': 'M-Automatika',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/9.png',
+      'title': 'Единый Центр Защиты',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/10.png',
+      'title': 'ЭДЕНТАЛЬ',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/11.png',
+      'title': 'ХОЛОДОВЪ Стоматология',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/12.png',
+      'title': 'Институт пластической хирургии',
+      'state': ''
+    },
+    {
+      'img': 'img/clients/companies/13.png',
+      'title': 'ПрезиДЕНТ стоматологический комплекс',
+      'state': ''
+    },
+  ];
+
 section#clients.section.clients.js-clients
   .wrap
     h1.section__title.clients__title.line КЛИЕНТЫ
 
     .clients__plates
-      .plates__item.js-clients-item
-        a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-1') читать отзыв
-        img.plates__img(src="img/clients/companies/1.png", alt="Медицинский центр Елены Малышевой")
+      each item in clients
+        .plates__item.js-clients-item(class= state)
+          //- a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-1') читать отзыв
+          img.plates__img(src= item.img, alt= item.title)
 
-      .plates__item.js-clients-item
-        a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-2') читать отзыв
-        img.plates__img(src="img/clients/companies/2.png", alt="Московский ювелирный завод")
+    //- a.clients__btn.js-clients-btn(href="javascript:void(0)").
+    //-   <svg class="clients__btn-icon" width="20" height="14">
+    //-     <use xlink:href="#icon-clients"></use>
+    //-   </svg>
+    //-   Все&nbsp;клиенты
 
-      .plates__item.js-clients-item
-        img.plates__img(src="img/clients/companies/3.png", alt="Доктор Борменталь")
+//- #modal-reviews-1.c-modal.js-modal
+//-   a.c-modal__close(data-modal='close')
 
-      .plates__item.js-clients-item
-        img.plates__img(src="img/clients/companies/4.png", alt="Ростелеком")
+//-   .c-modal__content
+//-     img.c-modal__img(src="img/clients/reviews/1.jpg", alt="")
 
-      .plates__item.js-clients-item
-        a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-5') читать отзыв
-        img.plates__img(src="img/clients/companies/5.png", alt="Доктор Мартин")
+//- #modal-reviews-2.c-modal.js-modal
+//-   a.c-modal__close(data-modal='close')
 
-      .plates__item.js-clients-item
-        img.plates__img(src="img/clients/companies/6.png", alt="Витакон")
+//-   .c-modal__content
+//-     img.c-modal__img(src="img/clients/reviews/1.jpg", alt="")
 
-      //- Part 2
+//- #modal-reviews-5.c-modal.js-modal
+//-   a.c-modal__close(data-modal='close')
 
-      .plates__item.hidden.js-clients-item
-        a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-1') читать отзыв
-        img.plates__img(src="img/clients/companies/1.png", alt="Медицинский центр Елены Малышевой")
-
-      .plates__item.hidden.js-clients-item
-        a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-2') читать отзыв
-        img.plates__img(src="img/clients/companies/2.png", alt="Московский ювелирный завод")
-
-      .plates__item.hidden.js-clients-item
-        img.plates__img(src="img/clients/companies/3.png", alt="Доктор Борменталь")
-
-      .plates__item.hidden.js-clients-item
-        img.plates__img(src="img/clients/companies/4.png", alt="Ростелеком")
-
-      .plates__item.hidden.js-clients-item
-        a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-5') читать отзыв
-        img.plates__img(src="img/clients/companies/5.png", alt="Доктор Мартин")
-
-      .plates__item.hidden.js-clients-item
-        img.plates__img(src="img/clients/companies/6.png", alt="Витакон")
-
-    a.clients__btn.js-clients-btn(href="javascript:void(0)").
-      <svg class="clients__btn-icon" width="20" height="14">
-        <use xlink:href="#icon-clients"></use>
-      </svg>
-      Все&nbsp;клиенты
-
-#modal-reviews-1.c-modal.js-modal
-  a.c-modal__close(data-modal='close')
-
-  .c-modal__content
-    img.c-modal__img(src="img/clients/reviews/1.jpg", alt="")
-
-#modal-reviews-2.c-modal.js-modal
-  a.c-modal__close(data-modal='close')
-
-  .c-modal__content
-    img.c-modal__img(src="img/clients/reviews/1.jpg", alt="")
-
-#modal-reviews-5.c-modal.js-modal
-  a.c-modal__close(data-modal='close')
-
-  .c-modal__content
-    img.c-modal__img(src="img/clients/reviews/1.jpg", alt="")
+//-   .c-modal__content
+//-     img.c-modal__img(src="img/clients/reviews/1.jpg", alt="")
