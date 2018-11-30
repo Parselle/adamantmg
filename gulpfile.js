@@ -18,6 +18,7 @@ const gulp = require('gulp'),
   cssClean = require('postcss-clean'),
 
   pug = require('gulp-pug'),
+  rename = require('gulp-rename'),
 
   imagemin = require('gulp-imagemin');
 
@@ -34,7 +35,7 @@ const path = {
   },
 
   src: {
-    pug: 'src/pug/*.pug',
+    pug: ['src/pug/*.pug', 'src/pug/pages/**/*.pug'],
     js: 'src/js/main.js',
     sass: 'src/sass/main.sass',
     assets: {
@@ -99,6 +100,9 @@ gulp.task('pug:prod', function () {
   return gulp.src(path.src.pug)
     .pipe(pug({
       pretty: true
+    }))
+    .pipe(rename({
+      extname: '.php'
     }))
     .pipe(gulp.dest(path.build.pug));
 });

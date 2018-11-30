@@ -1,3 +1,77 @@
+-
+	var tabs_article = [
+		{ 
+			'img': '../img/metodiki/lidogeneraciya/preview.svg',
+			'title': 'Лидогенерация',
+			'text': [
+				`Лидогенерация  — один из самых эффективных инструментов современного маркетинга,
+				который позволяет не только получать информацию о потенциальных клиентах,
+				но и управлять их действиями, «превращая» посетителей интернет-ресурса в покупателей.`,
+
+				`Выбирая модель Cost Per Action (оплата за действие), владелец бизнеса оплачивает только
+				нужные, заранее оговоренные действия пользователей:<br>
+				- заполнение форм;<br>
+				- посещение целевых страниц;<br>
+				- просмотры видео, прослушивание аудио, изучение прайс-листа и т.п.`,
+
+				` Преимуществами лидогенерации перед любыми другими маркетинговыми инструментами эксперты считают:<br>
+					- возможность определить цену одного лида;<br>
+					- прогнозируемость бюджета на рекламу;<br>
+					- повышение узнаваемости бренда;<br>
+					- возможность в любой момент увеличить количество лидов;<br>
+					- оплату за результат;`
+			]
+		}
+	];
+
+	var tabs_items = [
+		{
+			'number':'01.',
+			'img':'../img/metodiki/lidogeneraciya/article/article-1-1.png',
+			'title':'Что такое лидогенерация',
+			'text':`Лидогенерация —  комплекс маркетинговых мероприятий по привлечению
+							лидов или, другими словами, процесс сбора заявок от потенциальных покупателей.`
+		},
+		{
+			'number':'02.',
+			'img':'../img/metodiki/lidogeneraciya/article/article-1-2.png',
+			'title':'Что такое лид',
+			'text': `Лид — это потенциальный клиент, совершивший заранее определенное целевое
+							действие, демонстрирующее его заинтересованность в услугах рекламодателя. Например,
+							человек оставляет свои контакты в форме.`
+		},
+		{
+			'number':'03.',
+			'img':'../img/metodiki/lidogeneraciya/article/article-1-3.png',
+			'title':'Как работает лидогенерация',
+			'text':`В самом общем виде процесс лидогенерации может быть разбит на 4 этапа:<br>
+						<b>- создание лендинга</b> — продающей страницы, которая подводит потенциального покупателя к совершению нужного вам действия; <br>
+						<b>- настройка рекламной компании</b>, чтобы посетители узнали о вашей странице и зашли на нее;<br>
+						<b>- обработка лидов</b> — работа с поступившими заявками, оперативная связь с потенциальным клиентом;<br>
+						<b>- мониторинг и оптимизация процессов</b> для увеличения продаж.`
+		},
+		{
+			'number':'04.',
+			'img':'../img/metodiki/lidogeneraciya/article/article-1-4.png',
+			'title':'CPA или сколько стоит лид',
+			'text':`Стоимость лида определяется особенностями бизнес-ниши рекламодателя, географическим
+							расположением компании, уровнем конкуренции на рынке, затратами на продвижение, показателями
+							конверсии посадочной страницы и прогнозируемыми ожиданиями прибыли от одной сделки.
+							Расчет стоимости лида производится по формуле:<br>
+							<i>стоимость 1 перехода на интернет-ресурс <b>Х</b> количество таких переходов в течение выбранного промежутка времени <b>/</b> количество заявок за тот же временной промежуток.</i>`
+		},
+		{
+			'number':'05.',
+			'img':'../img/metodiki/lidogeneraciya/article/article-1-5.png',
+			'title':'Важные моменты или О чем вам не расскажут в рекламном агентстве',
+			'text':`Лидогенерация эффективна не для всех бизнес-ниш! Мы работаем только с теми тематиками,
+							в которых этот метод дает стабильно высокие результаты.  Кроме того, эффективность лидогенерации
+							напрямую связана с «качеством» лидов - привлечение активных, «свежих» и «живых» лидов обеспечивает
+							быстрое повышение объемов продаж, а использование устаревших или полученных случайным
+							образом клиентских баз способно, скорее, навредить, чем улучшить бизнес.`
+		},
+	];
+
 doctype html
 html(lang='ru')
 	head
@@ -61,7 +135,7 @@ html(lang='ru')
 		link(href='../css/main.css' rel='stylesheet')
 		script(async defer src='../js/main.js')
 
-	include blocks/preloader
+	include ../../blocks/preloader
 
 	body.active
 		.hidden
@@ -109,14 +183,61 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include 'header.php';?>
+		<?php include '../header-page.php';?>
 
-		include blocks/main
+		section#method.section.method
+			.wrap
+				h1.section__title.method__title.line МЕТОДИКИ
 
-		include blocks/about
-		include blocks/tools
-		include blocks/methods
-		include blocks/cases
-		include blocks/clients
+				ul.c-breadcrumbs.method__breadcrumbs
+					li.c-breadcrumbs__item
+						a(href="/") Главная
+					li.c-breadcrumbs__item
+						a(href="/index.php#methods") Методики
+					li.c-breadcrumbs__item
+						a(href="") Лидогенерация
 
-		<?php include 'footer.php';?>
+				//- .method__preview
+				//-   iframe.preview__video(
+				//-     width="750"
+				//-     height="430"
+				//-     src="https://www.youtube.com/embed/JsQlysPRoGw?showinfo=0"
+				//-     frameborder="0"
+				//-     allow="autoplay; encrypted-media"
+				//-     allowfullscreen
+				//-   )
+					
+				//-   article.preview__article
+				//-     h5.preview__title Заголовок
+				//-     p.preview__text.
+				//-       Это ознакомительное видео про привлечение клиентов,
+				//-       посмотрите какое оно замечательное
+
+				.method__tabs
+					.tabs__nav
+						a.tabs__btn.active(href='javascript:void(0)') Лидогенерация
+						a.tabs__btn(href='lidogeneraciya/dlya_medicinskih_centrov.php' target='_blank') Для медицинских центров
+						a.tabs__btn(href='lidogeneraciya/dlya_stomatologij.php' target='_blank') Для стоматологий
+						a.tabs__btn(href='lidogeneraciya/dlya_kosmetologicheskih_klinik.php' target='_blank') Для косметологических клиник
+
+				each article in tabs_article
+					article.method__article
+						img.article__img(src= article.img, alt= article.title)
+						.article__wrap
+							h3.article__title= article.title
+
+							.article__content
+								each text in article.text
+									p.article__text !{text}
+
+				.tabs__plates
+					each item in tabs_items
+						.plates__item
+							.plates__header
+								h3.plates__number= item.number
+								img.plates__img(src= item.img, alt= item.title)
+							.plates__content
+								p.plates__title= item.title
+								p.plates__text !{item.text}
+
+		<?php include '../footer.php';?>

@@ -1,3 +1,57 @@
+-
+	var tabs_article = [
+		{ 
+			'img': '../../img/metodiki/lidogeneraciya/preview.svg',
+			'title': 'Лидогенерация для стоматологий',
+			'text': [
+				`Лидогенерация для стоматологий имеет свою специфику. По данным экспертов по маркетингу,
+				в этой сфере особенную важность имеет территориальный критерий выбора.
+				Данное утверждение подтверждается статистикой:<br>
+				- на запросы вида «стоматология улица (название)» приходится 27%;<br>
+				- на запросы вида «удалить зуб район (название) » - 31%;<br>
+				- на запросы вида «имплантация город (название)» - 24% от общего числа запросов.`,
+
+				`Эту же тенденцию подтверждают и данные, собранные специалистами
+				компании Adamant MG в результате анализа поведения пользователей.
+				Только за 2018 год количество запросов, сделанных с мобильных устройств,
+				выросло на 108%, а переходов на интернет-ресурс рекламодателя
+				— на 193% по сравнению с предыдущим годом.`,
+
+				`Поэтому, чтобы оптимизировать стоимость, качество и количество лидов при
+				продвижении стоматологических услуг, мы:<br>
+				- точно определяем аудиторию, на которую будут показываться объявления, и отсеиваем нецелевую;<br>
+				- регулярно мониторим объявления конкурентов и меняем акции и предложения для
+				повышения сравнительной привлекательности вашего объявления;<br>
+				- учитываем ограничения в стоматологической тематике и используем максимальное
+				количество форматов для привлечения большего числа потенциальных клиентов;<br>
+				- определяем максимальную стоимость лида по различным направлениям;<br>
+				- тестируем самые разнообразные стратегии привлечения трафика.`
+			] 
+		}
+	];
+
+	var tabs_items = [
+		{
+			'number':'01.',
+			'img':'../../img/metodiki/lidogeneraciya/article/article-3-1.png',
+			'title':'Эффективность лидогенерации для различных направлений стоматологии',
+			'text': `Ежедневная практика специалистов компании Adamant MG подтверждает, что
+							лидогенерация для стоматологии дает оптимальные результаты во всех
+							направлениях - от стандартной первичной консультации до
+							имплантации любых уровней сложности.`
+		},
+		{
+			'number':'02.',
+			'img':'../../img/metodiki/lidogeneraciya/article/article-3-2.png',
+			'title':'Особенности подключения',
+			'text':`Кроме разработки эффективного УТП, лидогенерация для стоматологии
+							требует настройки точечного гео-таргетинга с адресами и
+							контактными данными клиник, и углубленную работу по
+							формирования доверия пользователя как к конкретному
+							специалисту, так и к медицинскому заведению в целом.`
+		}
+	];
+
 doctype html
 html(lang='ru')
 	head
@@ -56,12 +110,12 @@ html(lang='ru')
 		meta(itemprop='description' content= $description)
 		meta(itemprop='image' content= $ogImageUrl)
 
-		link(rel='icon' href='../img/favicon/adamant128x128.png' sizes='128x128')
-		link(rel='icon' href='../img/favicon/adamant32x32.png' sizes='32x32')
-		link(href='../css/main.css' rel='stylesheet')
-		script(async defer src='../js/main.js')
+		link(rel='icon' href='../../img/favicon/adamant128x128.png' sizes='128x128')
+		link(rel='icon' href='../../img/favicon/adamant32x32.png' sizes='32x32')
+		link(href='../../css/main.css' rel='stylesheet')
+		script(async defer src='../../js/main.js')
 
-	include blocks/preloader
+	include ../../../blocks/preloader
 
 	body.active
 		.hidden
@@ -109,14 +163,63 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include 'header.php';?>
+		<?php include '../../header-page.php';?>
 
-		include blocks/main
+		section#method.section.method
+			.wrap
+				h1.section__title.method__title.line МЕТОДИКИ
 
-		include blocks/about
-		include blocks/tools
-		include blocks/methods
-		include blocks/cases
-		include blocks/clients
+				ul.c-breadcrumbs.method__breadcrumbs
+					li.c-breadcrumbs__item
+						a(href="/") Главная
+					li.c-breadcrumbs__item
+						a(href="/index.php#methods") Методики
+					li.c-breadcrumbs__item
+						a(href="") Лидогенерация
+					li.c-breadcrumbs__item
+						a(href="") Для стоматологий
 
-		<?php include 'footer.php';?>
+				//- .method__preview
+				//-   iframe.preview__video(
+				//-     width="750"
+				//-     height="430"
+				//-     src="https://www.youtube.com/embed/JsQlysPRoGw?showinfo=0"
+				//-     frameborder="0"
+				//-     allow="autoplay; encrypted-media"
+				//-     allowfullscreen
+				//-   )
+					
+				//-   article.preview__article
+				//-     h5.preview__title Заголовок
+				//-     p.preview__text.
+				//-       Это ознакомительное видео про привлечение клиентов,
+				//-       посмотрите какое оно замечательное
+
+				.method__tabs
+					.tabs__nav
+						a.tabs__btn(href='../lidogeneraciya.php' target='_blank') Лидогенерация
+						a.tabs__btn(href='lidogeneraciya/dlya_medicinskih_centrov.php' target='_blank') Для медицинских центров
+						a.tabs__btn.active(href='javascript:void(0)') Для стоматологий
+						a.tabs__btn(href='lidogeneraciya/dlya_kosmetologicheskih_klinik.php' target='_blank') Для косметологических клиник
+
+				each article in tabs_article
+					article.method__article
+						img.article__img(src= article.img, alt= article.title)
+						.article__wrap
+							h3.article__title= article.title
+
+							.article__content
+								each text in article.text
+									p.article__text !{text}
+
+				.tabs__plates
+					each item in tabs_items
+						.plates__item
+							.plates__header
+								h3.plates__number= item.number
+								img.plates__img(src= item.img, alt= item.title)
+							.plates__content
+								p.plates__title= item.title
+								p.plates__text !{item.text}
+
+		<?php include '../../footer.php';?>

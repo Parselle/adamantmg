@@ -1,3 +1,77 @@
+-
+	var tabs_article = [
+		{ 
+			'img': '../img/metodiki/privlechenie_klientov/preview.svg',
+			'title': 'Привлечение клиентов',
+			'text': [
+				`Классическая схема идеальной «воронки продаж» состоит из:<br>
+				- лидогенерации, решающей задачи привлечения внимания потенциального
+				покупателя к продвигаемой услуге;<br>
+				- подготовки лида - процедуры, обеспечивающей доступ к подробной информации
+				о продукте и бренде;<br>
+				- продажи.`,
+
+				`Реализация этого алгоритма подразумевает 4 этапа привлечения
+				- создание портрета потенциального покупателя, разработку
+				релевантного контента, представляющего ценность для клиента
+				бренда, формирование эффективного канала коммуникации с
+				заказчиком и конверсию потенциального покупателя в клиента.`,
+
+				`Карта привлечения клиентов, которую в обязательном порядке готовят эксперты
+				компании Adamant MG для каждого проекта, включает в себя полный комплекс
+				современных маркетинговых инструментов:<br>
+				- план и объем продаж;<br>
+				- сумму желаемой прибыли;<br>
+				- показатели охвата аудитории и процента конверсии;<br>
+				- расчеты дохода по разным каналам привлечения.`
+			]
+		}
+	];
+
+	var tabs_items = [
+		{
+			'number':'01.',
+			'img':'../img/metodiki/privlechenie_klientov/article/article-1-1.png',
+			'title':'Анализируем вашу сферу деятельности и ЦА',
+			'text':`Портрет потенциального покупателя создается на основе ABC XYZ-анализа
+							с последующей сегментацией результатов по ассортиментной матрице.`
+		},
+		{
+			'number':'02.',
+			'img':'../img/metodiki/privlechenie_klientov/article/article-1-2.png',
+			'title':'Выявляем проблемы и потребности ЦА',
+			'text':`Основными критериями выявления целевой аудитории служат область
+							деятельности и доход клиентов, комплекс факторов, влияющих на решение
+							о покупке, возраст, географические особенности, ценовой диапазон и т.п.`
+		},
+		{
+			'number':'03.',
+			'img':'../img/metodiki/privlechenie_klientov/article/article-1-3.png',
+			'title':'Подбираем подходы',
+			'text':`В зависимости от индивидуальных особенностей продукта, специалисты компании
+							Adamant MG используют методы прямой и косвенной, исходящей и восходящей
+							лидогенерации и различные типы контента.`
+		},
+		{
+			'number':'04.',
+			'img':'../img/metodiki/privlechenie_klientov/article/article-1-4.png',
+			'title':'Тестируем',
+			'text':`Для оценки эффективности маркетинговой стратегии используются тесты RFM
+							и постоянный контроль данных количества просмотров, переходов,
+							конверсии и стоимости по различным каналам.`
+		},
+		{
+			'number':'05.',
+			'img':'../img/metodiki/privlechenie_klientov/article/article-1-5.png',
+			'title': 'Приводим клиентов',
+			'text':`Совместное с заказчиком определение оптимальных параметров лидов
+							позволяет компании Adamant MG предоставлять медицинским центрам,
+							стоматологическим и косметологическим клиникам не случайных посетителей,
+							а заранее подготовленных потенциальных потребителей продвигаемых
+							продуктов и приводить клиентов «за руку».`
+		},
+	];
+
 doctype html
 html(lang='ru')
 	head
@@ -61,7 +135,7 @@ html(lang='ru')
 		link(href='../css/main.css' rel='stylesheet')
 		script(async defer src='../js/main.js')
 
-	include blocks/preloader
+	include ../../blocks/preloader
 
 	body.active
 		.hidden
@@ -109,14 +183,54 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include 'header.php';?>
+		<?php include '../header-page.php';?>
 
-		include blocks/main
+		section#method.section.method
+			.wrap
+				h1.section__title.method__title.line МЕТОДИКИ
 
-		include blocks/about
-		include blocks/tools
-		include blocks/methods
-		include blocks/cases
-		include blocks/clients
+				ul.c-breadcrumbs.method__breadcrumbs
+					li.c-breadcrumbs__item
+						a(href="/") Главная
+					li.c-breadcrumbs__item
+						a(href="/index.php#methods") Методики
+					li.c-breadcrumbs__item
+						a(href="") Привлечение клиентов
 
-		<?php include 'footer.php';?>
+				//- .method__preview
+				//-   iframe.preview__video(
+				//-     width="750"
+				//-     height="430"
+				//-     src="https://www.youtube.com/embed/JsQlysPRoGw?showinfo=0"
+				//-     frameborder="0"
+				//-     allow="autoplay; encrypted-media"
+				//-     allowfullscreen
+				//-   )
+					
+				//-   article.preview__article
+				//-     h5.preview__title Заголовок
+				//-     p.preview__text.
+				//-       Это ознакомительное видео про привлечение клиентов,
+				//-       посмотрите какое оно замечательное
+
+				each article in tabs_article
+					article.method__article
+						img.article__img(src= article.img, alt= article.title)
+						.article__wrap
+							h3.article__title= article.title
+
+							.article__content
+								each text in article.text
+									p.article__text !{text}
+
+				.tabs__plates
+					each item in tabs_items
+						.plates__item
+							.plates__header
+								h3.plates__number= item.number
+								img.plates__img(src= item.img, alt= item.title)
+							.plates__content
+								p.plates__title= item.title
+								p.plates__text !{item.text}
+
+		<?php include '../footer.php';?>

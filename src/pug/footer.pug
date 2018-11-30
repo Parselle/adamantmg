@@ -1,118 +1,118 @@
 footer#footer.footer
-  .footer__content
-    .footer__contacts
-      .contacts__content
-        img.contacts__logo(src="img/adamant/adamant.svg" width='190' height='58' alt="Логотип Adamant Media Group")
+	.footer__content
+		.footer__contacts
+			.contacts__content
+				img.contacts__logo(src="img/adamant/adamant.svg" width='190' height='58' alt="Логотип Adamant Media Group")
 
-        .contacts__block
-          .contacts__item
-            svg.contacts__icon(width='25' height='22')
-              use(xlink:href='#icon-phone')
-            a.contacts__link.contacts__link--phone(href='tel:+74991120777') +7 (499) 112 0 777
-          .contacts__item
-            svg.contacts__icon(width='25' height='22')
-              use(xlink:href='#icon-tm')
-            a.contacts__link(href='http://t.me/adamantmg') t.me/adamantmg
-          .contacts__item
-            svg.contacts__icon(width='25' height='17')
-              use(xlink:href='#icon-mail')
-            a.contacts__link(href='mailto:shtab@adamantmg.ru') shtab@adamantmg.ru
+				.contacts__block
+					.contacts__item
+						svg.contacts__icon(width='25' height='22')
+							use(xlink:href='#icon-phone')
+						a.contacts__link.contacts__link--phone(href='tel:+74991120777') +7 (499) 112 0 777
+					.contacts__item
+						svg.contacts__icon(width='25' height='22')
+							use(xlink:href='#icon-tm')
+						a.contacts__link(href='http://t.me/adamantmg') t.me/adamantmg
+					.contacts__item
+						svg.contacts__icon(width='25' height='17')
+							use(xlink:href='#icon-mail')
+						a.contacts__link(href='mailto:shtab@adamantmg.ru') shtab@adamantmg.ru
 
-        .contacts__address
-          svg.contacts__icon(width='19' height='32')
-            use(xlink:href='#icon-pin')
-          p.address__text.
-            <b>г. Москва, Варшавское шоссе, д. 125, строение 1, офис 536</b><br>
-            5 дней в неделю с 10:00 до 19:00 (по МСК)
+				.contacts__address
+					svg.contacts__icon(width='19' height='32')
+						use(xlink:href='#icon-pin')
+					p.address__text.
+						<b>г. Москва, Варшавское шоссе, д. 125, строение 1, офис 536</b><br>
+						5 дней в неделю с 10:00 до 19:00 (по МСК)
 
-    form#form-1.c-form.footer__form(
-      action=''
-      method='post'
-      onsubmit='validateform(this); return false;'
-    )
+		form#form-1.c-form.footer__form(
+			action=''
+			method='post'
+			onsubmit='validateform(this); return false;'
+		)
 
-      .c-form__header
-        p.header__text Есть вопросы? Можете их задать сейчас
+			.c-form__header
+				p.header__text Есть вопросы? Можете их задать сейчас
 
-      .c-form__content
-        label.c-form__block.c-form__block--name
-          input.c-input(
-            type='text'
-            name='Lead[name]'
-            data-mask='name'
-            placeholder='Ваше имя'
-            required
-          )
+			.c-form__content
+				label.c-form__block.c-form__block--name
+					input.c-input(
+						type='text'
+						name='Lead[name]'
+						data-mask='name'
+						placeholder='Ваше имя'
+						required
+					)
 
-        label.c-form__block.c-form__block--phone
-          input.c-input(
-            type='tel'
-            name='Lead[phone]'
-            data-mask='phone'
-            placeholder='Ваш телефон'
-            required
-          )
+				label.c-form__block.c-form__block--phone
+					input.c-input(
+						type='tel'
+						name='Lead[phone]'
+						data-mask='phone'
+						placeholder='Ваш телефон'
+						required
+					)
 
-        label.c-form__block.c-form__block--message
-          textarea.c-input(name="Lead[message]" placeholder="Сообщение")
+				label.c-form__block.c-form__block--message
+					textarea.c-input(name="Lead[message]" placeholder="Сообщение")
 
-        p.c-form__footer-text.
-          Нажимая на кнопку «Отправить», вы соглашаетесь на обработку
-          персональных данных в соответствии с Политикой конфиденциальности
+				p.c-form__footer-text.
+					Нажимая на кнопку «Отправить», вы соглашаетесь на обработку
+					персональных данных в соответствии с Политикой конфиденциальности
 
-        input.c-btn.c-btn--arrow--white.c-form__btn(
-          type='submit'
-          value='ЗАПИСАТЬСЯ'
-        )
+				input.c-btn.c-btn--arrow--white.c-form__btn(
+					type='submit'
+					value='ЗАПИСАТЬСЯ'
+				)
 
-  .footer__map.js-map
+	.footer__map.js-map
 
 section#copyright.copyright
-  .wrap
-    .copyright__list
-      .list__item
-        a.list__link(href='/policy.php' target='_blank') Политика конфиденциальности
-      .list__item
-        a.list__link(href='/agreement.php' target='_blank') Пользовательское соглашение
-      .list__item
-        a.list__link(href='/personal.php' target='_blank') Согласие на обработкуперсональных данных
+	.wrap
+		.copyright__list
+			.list__item
+				a.list__link(href='/policy.php' target='_blank') Политика конфиденциальности
+			.list__item
+				a.list__link(href='/agreement.php' target='_blank') Пользовательское соглашение
+			.list__item
+				a.list__link(href='/personal.php' target='_blank') Согласие на обработкуперсональных данных
 
 script.
-  'use strict';
-  const contactsMap = document.querySelector('.js-map');
+	'use strict';
+	const contactsMap = document.querySelector('.js-map');
 
-  function initMap() {
-    const location = {lat: 55.629320, lng: 37.621216};
-    const mapOptions = {
-      center: new google.maps.LatLng(location),
-      zoom: 16,
-      disableDefaultUI: true
-    };
+	function initMap() {
+		const location = {lat: 55.629320, lng: 37.621216};
+		const mapOptions = {
+			center: new google.maps.LatLng(location),
+			zoom: 16,
+			disableDefaultUI: true
+		};
 
-    const map = new google.maps.Map(contactsMap, mapOptions);
-    map.panBy(-7, -29);
+		const map = new google.maps.Map(contactsMap, mapOptions);
+		map.panBy(-7, -29);
 
-    const markerImage = new google.maps.MarkerImage(
-      'img/contacts/map-adamant.svg',
-      new google.maps.Size(114, 42)
-    );
+		const markerImage = new google.maps.MarkerImage(
+			'img/contacts/map-adamant.svg',
+			new google.maps.Size(114, 42)
+		);
 
-    new google.maps.Marker({
-      position: location,
-      map: map,
-      icon: markerImage
-    });
+		new google.maps.Marker({
+			position: location,
+			map: map,
+			icon: markerImage
+		});
 
-    window.addEventListener('resize', () => {
-      map.setCenter(location);
-      map.setZoom(16);
-      map.panBy(-7, -29);
-    });
-  }
-  //- function initMap() {
-  //-   var location = {lat: 55.629320, lng: 37.621216};
-  //-   var map = new google.maps.Map(
-  //-       document.querySelector('.js-map'), {zoom: 16, center: location});
-  //-   var marker = new google.maps.Marker({position: location, map: map});
-  //- }
+		window.addEventListener('resize', () => {
+			map.setCenter(location);
+			map.setZoom(16);
+			map.panBy(-7, -29);
+		});
+	}
+	//- function initMap() {
+	//-   var location = {lat: 55.629320, lng: 37.621216};
+	//-   var map = new google.maps.Map(
+	//-       document.querySelector('.js-map'), {zoom: 16, center: location});
+	//-   var marker = new google.maps.Marker({position: location, map: map});
+	//- }
 script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmbMXDyKO6qmfgN3gL4LVXAPncLcM-5jQ&callback=initMap")

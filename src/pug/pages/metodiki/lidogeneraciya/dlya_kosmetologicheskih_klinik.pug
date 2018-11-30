@@ -1,3 +1,52 @@
+-
+	var tabs_article = [
+		{ 
+			'img': '../../img/methods/1/preview.svg',
+			'title': 'Лидогенерация для косметологических клиник',
+			'text': [
+				`В соответствии с законодательством РФ, продвижение косметологических услуг и
+				товаров в интернете может осуществляться только со множеством существенных ограничений.
+				Для владельцев бизнеса это означает, что лидогенерация  эффективна только
+				для косметологических клиник с высоким средним чеком — например, для тех,
+				кто специализируется на аппаратной и инъекционной косметологии.
+				А для салонов красоты с низким средним чеком (1 000-1 500 ₽) этот
+				метод привлечения клиентов может оказаться нерентабельным`,
+
+				`Дополнительную сложность для маркетинговой кампании представляет фокусировка
+				потребителей на продвигаемом спецпредложении, из-за которой обработку
+				лидов требуется проводить особенно тщательно, а практика допродаж
+				становится почти обязательной. Особое значение в лидогенерации для
+				косметологических клиник имеют разработка уникального торгового предложения,
+				имеющего высокую ценность для целевой аудитории, и создание офферов,
+				повышающих доверие к бренду.`,
+			] 
+		}
+	];
+
+	var tabs_items = [
+		{
+			'number':'01.',
+			'img':'../../img/methods/1/article/article-4-1.png',
+			'title':'Особенности лидогенерации для косметологических клиник',
+			'text': `Практика доказывает, что лидогенерация для косметологических клиник оказывается
+							максимально эффективной при продвижении аппаратных или инвазивных процедур
+							-лифтинга, мезотерапии, инъекций ботокса, лазерной эпиляции и т.п.,
+							- средний чек на которые достаточно высок и позволяет окупить
+							расходы на оплату услуг таргетолога и рекламную кампанию.`
+		},
+		{
+			'number':'02.',
+			'img':'../../img/methods/1/article/article-4-2.png',
+			'title':'Особый подход',
+			'text':`На основании многолетней практики маркетологами Adamant MG разработан
+							эффективный алгоритм лидогенерации для косметологических клиник.
+							Он включает в себя не только проработку уникального торгового предложения
+							бренда, но и нестандартные методы подачи информации — яркие визуальные
+							образы, красочные видеоролики процедур, подчеркивающие их эффективность
+							и вызывающие доверие потенциальных клиентов.`
+		}
+	];
+
 doctype html
 html(lang='ru')
 	head
@@ -56,12 +105,12 @@ html(lang='ru')
 		meta(itemprop='description' content= $description)
 		meta(itemprop='image' content= $ogImageUrl)
 
-		link(rel='icon' href='../img/favicon/adamant128x128.png' sizes='128x128')
-		link(rel='icon' href='../img/favicon/adamant32x32.png' sizes='32x32')
-		link(href='../css/main.css' rel='stylesheet')
-		script(async defer src='../js/main.js')
+		link(rel='icon' href='../../img/favicon/adamant128x128.png' sizes='128x128')
+		link(rel='icon' href='../../img/favicon/adamant32x32.png' sizes='32x32')
+		link(href='../../css/main.css' rel='stylesheet')
+		script(async defer src='../../js/main.js')
 
-	include blocks/preloader
+	include ../../../blocks/preloader
 
 	body.active
 		.hidden
@@ -109,14 +158,63 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include 'header.php';?>
+		<?php include '../../header-page.php';?>
+		
+		section#method.section.method
+			.wrap
+				h1.section__title.method__title.line МЕТОДИКИ
 
-		include blocks/main
+				ul.c-breadcrumbs.method__breadcrumbs
+					li.c-breadcrumbs__item
+						a(href="/") Главная
+					li.c-breadcrumbs__item
+						a(href="/index.php#methods") Методики
+					li.c-breadcrumbs__item
+						a(href="") Лидогенерация
+					li.c-breadcrumbs__item
+						a(href="") Для косметологических клиник
 
-		include blocks/about
-		include blocks/tools
-		include blocks/methods
-		include blocks/cases
-		include blocks/clients
+				//- .method__preview
+				//-   iframe.preview__video(
+				//-     width="750"
+				//-     height="430"
+				//-     src="https://www.youtube.com/embed/JsQlysPRoGw?showinfo=0"
+				//-     frameborder="0"
+				//-     allow="autoplay; encrypted-media"
+				//-     allowfullscreen
+				//-   )
+					
+				//-   article.preview__article
+				//-     h5.preview__title Заголовок
+				//-     p.preview__text.
+				//-       Это ознакомительное видео про привлечение клиентов,
+				//-       посмотрите какое оно замечательное
 
-		<?php include 'footer.php';?>
+				.method__tabs
+					.tabs__nav
+						a.tabs__btn(href='../lidogeneraciya.php' target='_blank') Лидогенерация
+						a.tabs__btn(href='lidogeneraciya/dlya_medicinskih_centrov.php' target='_blank') Для медицинских центров
+						a.tabs__btn(href='lidogeneraciya/dlya_stomatologij.php' target='_blank') Для стоматологий
+						a.tabs__btn.active(href='javascript:void(0)') Для косметологических клиник
+
+				each article in tabs_article
+					article.method__article
+						img.article__img(src= article.img, alt= article.title)
+						.article__wrap
+							h3.article__title= article.title
+
+							.article__content
+								each text in article.text
+									p.article__text !{text}
+
+				.tabs__plates
+					each item in tabs_items
+						.plates__item
+							.plates__header
+								h3.plates__number= item.number
+								img.plates__img(src= item.img, alt= item.title)
+							.plates__content
+								p.plates__title= item.title
+								p.plates__text !{item.text}
+
+		<?php include '../../footer.php';?>

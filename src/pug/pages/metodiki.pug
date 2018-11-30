@@ -1,3 +1,35 @@
+-
+	var methods_list1 = [
+			{
+				'title': 'Лидогенерация',
+				'img': 'img/metodiki/lidogeneraciya/preview.svg',
+				'href': 'metodiki/lidogeneraciya.php'
+			},
+			{
+				'title': 'Реклама в интернете',
+				'img': 'img/metodiki/reklama_v_internete/preview.svg',
+				'href': 'metodiki/reklama_v_internete.php'
+			}
+	];
+
+	var methods_list2 = [
+			{
+				'title': 'Привлечение клиентов',
+				'img': 'img/metodiki/privlechenie_klientov/preview.svg',
+				'href': 'metodiki/privlechenie_klientov.php'
+			},
+			{
+				'title': 'Лендинги и креативы',
+				'img': 'img/metodiki/lendingi_i_kreativy/preview.svg',
+				'href': 'metodiki/lendingi_i_kreativy.php'
+			},
+			{
+				'title': 'Оценка эффективности',
+				'img': 'img/metodiki/ocenka_ehffektivnosti/preview.svg',
+				'href': 'metodiki/ocenka_ehffektivnosti.php'
+			}
+	];
+
 doctype html
 html(lang='ru')
 	head
@@ -56,12 +88,12 @@ html(lang='ru')
 		meta(itemprop='description' content= $description)
 		meta(itemprop='image' content= $ogImageUrl)
 
-		link(rel='icon' href='../img/favicon/adamant128x128.png' sizes='128x128')
-		link(rel='icon' href='../img/favicon/adamant32x32.png' sizes='32x32')
-		link(href='../css/main.css' rel='stylesheet')
-		script(async defer src='../js/main.js')
+		link(rel='icon' href='img/favicon/adamant128x128.png' sizes='128x128')
+		link(rel='icon' href='img/favicon/adamant32x32.png' sizes='32x32')
+		link(href='css/main.css' rel='stylesheet')
+		script(async defer src='js/main.js')
 
-	include blocks/preloader
+	include ../blocks/preloader
 
 	body.active
 		.hidden
@@ -109,14 +141,30 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include 'header.php';?>
+		<?php include 'header-page.php';?>
 
-		include blocks/main
+		section#methods.section.methods
+			.wrap
+				h1.section__title.methods__title.line МЕТОДИКИ
 
-		include blocks/about
-		include blocks/tools
-		include blocks/methods
-		include blocks/cases
-		include blocks/clients
+				ul.c-breadcrumbs
+					li.c-breadcrumbs__item
+						a(href="/") Главная
+					li.c-breadcrumbs__item
+						a(href="") Методики
+
+				.methods__plates
+					.plates__double-row
+						each method in methods_list1
+							.plates__item
+								img.plates__img(src= method.img, alt= method.title)
+								a.plates__hover(href= method.href)
+									p.plates__text= method.title
+					
+					each method in methods_list2
+						.plates__item.plates__item--small
+							img.plates__img(src= method.img, alt= method.title)
+							a.plates__hover(href= method.href)
+								p.plates__text= method.title
 
 		<?php include 'footer.php';?>
