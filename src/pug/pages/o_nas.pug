@@ -1,16 +1,24 @@
 -
 	var about_article = [
 		{
-			'title': 'Adamant — это сверх уровень цифровой сферы',
+			'title': 'ADAMANT MEDIA GROUP - элитная команда маркетологов.',
 			'text': [
-				`Забудьте про super, best и luxury. Репутационное
-				продвижение, повышающее узнаваемость бренда,
-				грамотно разработанная маркетинговая кампания и реклама
-				в социальных сетях — это всего лишь основа, кристалл`,
+				`Опыт работы ключевых сотрудников в digital маркетинге больше 9-лет.`,
 
-				`<b>ADAMANT MEDIA GROUP</b> — мы превращаем необработанный
-				алмаз вашей бизнес-идеи в сверкающий бриллиант
-				успешного бренда. Делаем больше, чем от нас ожидают`
+				`В компании создан полный цикл для продвижения услуг клиентов:<br>
+				- собственная разработка маркетинговых стратегий;<br>
+				- создание лендингов с индивидуальным дизайном;<br>
+				- генерация трафика из любых источников;<br>
+				- проверка качества лидов;<br>
+				- система оценки эффективности рекламы.<br>`,
+
+				`Для каждого клиента выделяется личный менеджер.`,
+
+				`Хотите новых клиентов?<br>
+				Озадачьте этим нас и сконцентрируйтесь на своих бизнес-процессах.`,
+
+				`ADAMANT MEDIA GROUP - грандиозный маркетинг ОТ и ДО!<br>
+				ADAMANT MEDIA GROUP - новые клиенты в любых количествах!`
 			]
 		}
 	];
@@ -246,19 +254,19 @@ html(lang='ru')
 						each text in item.text
 							p.article__text !{text}
 
-				.about__stats
-					each item in about_stats
-						.stats__item
-							svg.stats__icon(width= item.img.width height= item.img.height)
-								use(xlink:href= item.img.href)
-							.stats__content
-								h1.stats__number
-									span= item.number
-									sup= item.ext
-								p.stats__text
-									span= item.text1
-									br
-									span= item.text2
+				//- .about__stats
+				//- 	each item in about_stats
+				//- 		.stats__item
+				//- 			svg.stats__icon(width= item.img.width height= item.img.height)
+				//- 				use(xlink:href= item.img.href)
+				//- 			.stats__content
+				//- 				h1.stats__number
+				//- 					span= item.number
+				//- 					sup= item.ext
+				//- 				p.stats__text
+				//- 					span= item.text1
+				//- 					br
+				//- 					span= item.text2
 
 		section#team.section.team
 			.wrap
@@ -266,7 +274,7 @@ html(lang='ru')
 
 				.team__content
 					.team__leaders
-						h5.leaders__title Руководители
+						//- h5.leaders__title Руководители
 
 						each person in team_1
 							.team__block
@@ -277,7 +285,7 @@ html(lang='ru')
 									p.block__text= person.about
 
 					.team__people.js-team
-						h5.people__title Сотрудники
+						//- h5.people__title Сотрудники
 
 						.team__blocks.js-team-blocks
 							.blocks__view.js-team-view

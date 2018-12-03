@@ -2,44 +2,37 @@
 	var case_article = [
 		{
 			'title': 'Цель',
-			'text': `Увеличение количества заказов, расширение
-							спектра предоставляемых услуг, запуск кампании в Яндекс.Директ`
+			'text': `Увеличить количество клиентов на установку зубных имплантов`
 		},
 		{
 			'title': 'Результат',
-			'text': `Разработан новый логотип компании, создано 4
-							лендинга под разные ЦА, к ним подключена CRM-система
-							и виртуальный номер для динамического call-трекинга.
-							Запущены 4 рекламные кампании в Яндекс.Директ.
-							За 2 месяца сгенерировано больше 200 лидов. Средняя
-							стоимость лида 1 090 ₽. Approve — 70%.
-							73 новых заказа за 2 месяца.`
+			'text': `Разработано 5 лендингов, под 3 варианта акции. За 3 месяца привлечено 827 лидов. Стоимость лида 1 900 ₽. Approve — 57%. 143 новых заказа за 3 месяца.`
 		}
 	];
 
 	var case_stats = [
 		{
-			'img': '../img/cases/stats/1.svg',
-			'text': `Длительность акции <b>2&nbsp;месяца</b>`
+			'img': '../img/keysy/stats/1.svg',
+			'text': `Длительность акции <b>3&nbsp;месяца</b>`
 		},
 		{
-			'img': '../img/cases/stats/2.svg',
-			'text': `<b>200</b> заявок`
+			'img': '../img/keysy/stats/2.svg',
+			'text': `<b>143</b> заявки`
 		},
 		{
-			'img': '../img/cases/stats/3.svg',
+			'img': '../img/keysy/stats/3.svg',
 			'text': `Более <b>50</b> новых постоянных клиентов`
 		},
 		{
-			'img': '../img/cases/stats/4.svg',
-			'text': `<b>4</b> новых лендинга`
+			'img': '../img/keysy/stats/4.svg',
+			'text': `<b>5</b> новых лендинга`
 		},
 		{
-			'img': '../img/cases/stats/5.svg',
-			'text': `Цена заявки <b>1090&nbsp;₽</b>`
+			'img': '../img/keysy/stats/5.svg',
+			'text': `Цена заявки <b>1900&nbsp;₽</b>`
 		},
 		{
-			'img': '../img/cases/stats/6.svg',
+			'img': '../img/keysy/stats/6.svg',
 			'text': `Цена клиента <b>от 4&nbsp;500</b> до <b>12&nbsp;000&nbsp;₽</b>`
 		},
 	];
@@ -165,12 +158,12 @@ html(lang='ru')
 					li.c-breadcrumbs__item
 						a(href="/") Главная
 					li.c-breadcrumbs__item
-						a(href="/index.php#cases") Кейсы
+						a(href="../keysy.php") Кейсы
 					li.c-breadcrumbs__item
-						a(href="") Стоматология
+						a(href="") Установка имплантов
 
 				article.case__article
-					img.case__img(src='../img/cases/8.jpg', alt="Картинка кейса")
+					img.case__img(src='../img/keysy/ustanovka_implantov.jpg', alt="Картинка кейса")
 
 					each item in case_article
 						h4.case__title= item.title
