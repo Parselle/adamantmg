@@ -3,12 +3,12 @@
       {
         'title': 'Лидогенерация',
         'img': 'img/metodiki/lidogeneraciya/preview.svg',
-        'href': 'metodiki/lidogeneraciya.php'
+        'href': 'metodiki/lidogeneraciya'
       },
       {
         'title': 'Реклама в интернете',
         'img': 'img/metodiki/reklama_v_internete/preview.svg',
-        'href': 'metodiki/reklama_v_internete.php'
+        'href': 'metodiki/reklama_v_internete'
       }
   ];
 
@@ -16,17 +16,17 @@
       {
         'title': 'Привлечение клиентов',
         'img': 'img/metodiki/privlechenie_klientov/preview.svg',
-        'href': 'metodiki/privlechenie_klientov.php'
+        'href': 'metodiki/privlechenie_klientov'
       },
       {
         'title': 'Лендинги и креативы',
         'img': 'img/metodiki/lendingi_i_kreativy/preview.svg',
-        'href': 'metodiki/lendingi_i_kreativy.php'
+        'href': 'metodiki/lendingi_i_kreativy'
       },
       {
         'title': 'Оценка эффективности',
         'img': 'img/metodiki/ocenka_ehffektivnosti/preview.svg',
-        'href': 'metodiki/ocenka_ehffektivnosti.php'
+        'href': 'metodiki/ocenka_ehffektivnosti'
       }
   ];
 
@@ -38,16 +38,16 @@ section#methods.section.methods
       .plates__double-row
         each method in methods_list1
           .plates__item
-            img.plates__img(src= method.img, alt= method.title)
+            img.plates__img(src= method.img, alt= method.title, title= method.title)
             a.plates__hover(href= method.href)
               p.plates__text= method.title
       
       each method in methods_list2
         .plates__item.plates__item--small
-          img.plates__img(src= method.img, alt= method.title)
+          img.plates__img(src= method.img, alt= method.title, title= method.title)
           a.plates__hover(href= method.href)
             p.plates__text= method.title
 
-    a.c-btn.c-btn--arrow--purple.methods__btn(href='metodiki.php') подробнее
+    a.c-btn.c-btn--arrow--purple.methods__btn(href='metodiki') подробнее
       svg.c-btn__arrow(width="59" height="15")
         use(xlink:href="#icon-arrow")

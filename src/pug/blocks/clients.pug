@@ -75,7 +75,7 @@ section#clients.section.clients.js-clients
       each item in clients
         .plates__item.js-clients-item(class= state)
           //- a.plates__link(href="javascript:void(0)" data-modal='#modal-reviews-1') читать отзыв
-          img.plates__img(src= item.img, alt= item.title)
+          img.plates__img(src= item.img, alt= item.title, title= item.title)
 
     //- a.clients__btn.js-clients-btn(href="javascript:void(0)").
     //-   <svg class="clients__btn-icon" width="20" height="14">

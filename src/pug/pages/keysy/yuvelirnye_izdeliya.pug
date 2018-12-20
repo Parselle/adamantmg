@@ -33,10 +33,10 @@
 			'img': '../img/keysy/stats/5.svg',
 			'text': `Цена заявки <b>500&nbsp;₽</b>`
 		},
-		{
-			'img': '../img/keysy/stats/6.svg',
-			'text': `Цена клиента <b>от 4&nbsp;500</b> до <b>12&nbsp;000&nbsp;₽</b>`
-		},
+		//- {
+		//- 	'img': '../img/keysy/stats/6.svg',
+		//- 	'text': `Цена клиента <b>от 4&nbsp;500</b> до <b>12&nbsp;000&nbsp;₽</b>`
+		//- },
 	];
 
 doctype html
@@ -45,10 +45,10 @@ html(lang='ru')
 		//- Landing-page settings
 		- var $charset = 'UTF-8'
 
-		- var $title = 'Adamant Media Group'
-		- var $description = 'ADAMANT MEDIA GROUP— мы превращаем необработанный алмаз вашей бизнес-идеи в сверкающий бриллиант успешного бренда. Делаем больше, чем от нас ожидают'
+		- var $title = 'Рекламные кейсы для ювелирных салонов от ADAMANT MEDIA GROUP'
+		- var $description = 'Примеры лучших рекламных кейсов по продвижению услуг ювелирных салонов.'
 		- var $url = 'http://adamantmg.ru'
-		- var $keywords = 'key1, key2, key3'
+		- var $keywords = 'рекламные кейсы'
 		- var $tabColor = '#8e5fc2'
 
 		- var $author = 'AdamantMG'
@@ -150,7 +150,7 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include '../header-page.php';?>
+		<?php include 'header-page.php';?>
 
 		section#case.section.case
 			.wrap
@@ -160,7 +160,7 @@ html(lang='ru')
 					li.c-breadcrumbs__item
 						a(href="/") Главная
 					li.c-breadcrumbs__item
-						a(href="../keysy.php") Кейсы
+						a(href="../keysy") Кейсы
 					li.c-breadcrumbs__item
 						a(href="") Ювелирные изделия
 
@@ -177,4 +177,4 @@ html(lang='ru')
 								img.stats__icon(src= item.img, alt="Иконка")
 								p.stats__text !{item.text}
 
-		<?php include '../footer.php';?>
+		<?php include 'footer.php';?>

@@ -58,10 +58,10 @@ html(lang='ru')
 		//- Landing-page settings
 		- var $charset = 'UTF-8'
 
-		- var $title = 'Adamant Media Group'
-		- var $description = 'ADAMANT MEDIA GROUP— мы превращаем необработанный алмаз вашей бизнес-идеи в сверкающий бриллиант успешного бренда. Делаем больше, чем от нас ожидают'
+		- var $title = 'Лидогенерация для стоматологий - опыт ADAMANT MEDIA GROUP'
+		- var $description = 'Услуги лидогенерации для стоматологий, с оплатой за результат. Привлечение клиентов и продажа лидов. Стоматологическим клиникам - лидогенерация под ключ.'
 		- var $url = 'http://adamantmg.ru'
-		- var $keywords = 'key1, key2, key3'
+		- var $keywords = 'Лидогенерация для'
 		- var $tabColor = '#8e5fc2'
 
 		- var $author = 'AdamantMG'
@@ -163,7 +163,7 @@ html(lang='ru')
 						<style>.acls-1{fill:#666;fill-rule:evenodd}</style>
 					path(id="aicon" class="acls-1" d="M893 349v-2h20v2h-20zm0-8h20v2h-20v-2zm0-6h20v2h-20v-2z" transform="translate(-893 -335)")
 
-		<?php include '../../header-page.php';?>
+		<?php include 'header-page.php';?>
 
 		section#method.section.method
 			.wrap
@@ -173,9 +173,9 @@ html(lang='ru')
 					li.c-breadcrumbs__item
 						a(href="/") Главная
 					li.c-breadcrumbs__item
-						a(href="/metodiki.php") Методики
+						a(href="/metodiki") Методики
 					li.c-breadcrumbs__item
-						a(href="/metodiki/lidogeneraciya.php") Лидогенерация
+						a(href="/metodiki/lidogeneraciya") Лидогенерация
 					li.c-breadcrumbs__item
 						a(href="") Для стоматологий
 
@@ -197,10 +197,10 @@ html(lang='ru')
 
 				.method__tabs
 					.tabs__nav
-						a.tabs__btn(href='../lidogeneraciya.php' target='_blank') Лидогенерация
-						a.tabs__btn(href='dlya_medicinskih_centrov.php' target='_blank') Для медицинских центров
+						a.tabs__btn(href='../lidogeneraciya') Лидогенерация
+						a.tabs__btn(href='dlya_medicinskih_centrov') Для медицинских центров
 						a.tabs__btn.active(href='javascript:void(0)') Для стоматологий
-						a.tabs__btn(href='dlya_kosmetologicheskih_klinik.php' target='_blank') Для косметологических клиник
+						a.tabs__btn(href='dlya_kosmetologicheskih_klinik') Для косметологических клиник
 
 				each article in tabs_article
 					article.method__article
@@ -222,4 +222,4 @@ html(lang='ru')
 								p.plates__title= item.title
 								p.plates__text !{item.text}
 
-		<?php include '../../footer.php';?>
+		<?php include 'footer.php';?>
