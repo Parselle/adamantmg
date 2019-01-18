@@ -14,11 +14,24 @@
     width: 270px
     min-height: 45px
     padding: 5px 10px
-    border-radius: 5px
     border: none
     font-size: 24px
     font-weight: bold
     border-radius: 22.5px
+
+    +on-event
+      transform: translateY(-2px)
+      animation: none !important
+
+  +mod('--medium')
+    width: 100%
+    max-width: 360px
+    min-height: 70px
+    padding: 5px 10px
+    border: none
+    font-size: 16px
+    font-weight: bold
+    border-radius: 50px
 
     +on-event
       transform: translateY(-2px)
@@ -86,6 +99,13 @@
       background: $color-purple
       color: white
 
+    +mod('--purple-fill')
+      background: $color-purple
+      color: white
+
+      +on-event
+        transform: scale(0.98)
+
   //Extensions
   +mod('--wide')
     width: 100%
@@ -93,4 +113,5 @@
     +on-event
       animation: none
 
-    
+button.c-btn
+  white-space: pre-line

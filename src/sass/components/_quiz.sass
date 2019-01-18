@@ -1,0 +1,92 @@
+.c-quiz
+  display: grid
+  grid-template-columns: minmax(200px, 750px)
+  padding-left: 190px
+
+  +media-mx(1200px)
+    padding-left: 0
+
+  &__box
+    display: grid
+    justify-items: center
+    justify-content: center
+    grid-gap: 25px
+    text-align: center
+    padding: 30px 20px
+    border: 5px solid $color-blue-light
+
+  &__title
+    max-width: 470px
+    font-weight: bold
+    color: $color-blue-dark
+
+  &__desc
+    max-width: 490px
+    font-size: 18px
+
+  &__input
+    max-width: 360px
+
+  &__formQuiz
+    display: grid
+    grid-template-columns: minmax(200px, 360px)
+    padding: 0
+    background: none
+
+    .c-form
+      &__content
+        grid-template-columns: minmax(200px, 360px)
+        grid-gap: 30px
+
+      &__block
+        .block__title
+          font-weight: bold
+          color: $color-blue-dark
+        .block__desc
+          font-size: 16px
+
+      &__footer-text
+        text-align: center
+        font-size: 16px
+        color: rgba(102, 102, 102, 255)
+
+
+  &__formResult
+    display: grid
+    background: $color-blue-light
+    justify-content: center
+    grid-template-columns: minmax(200px, 550px)
+    padding: 40px 15px
+    grid-gap: 30px
+
+    .c-form
+      &__header
+        display: grid
+        grid-gap: 20px
+        text-align: center
+
+        *
+          color: $color-blue-dark
+          font-size: 18px
+          font-weight: normal
+          font-weight: bold
+
+      &__content
+        grid-template-columns: repeat(2, minmax(200px, 260px))
+        justify-items: center
+        justify-content: center
+        grid-gap: 15px 30px
+
+        +media-mx(500px)
+          grid-template-columns: minmax(200px, 260px)
+
+      &__block--name
+        grid-column: 1
+      &__block--phone
+        grid-column: 2
+
+        +media-mx(500px)
+          grid-column: 1
+
+      &__btn
+        justify-self: center

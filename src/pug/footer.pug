@@ -1,3 +1,68 @@
+|<?php
+|    session_start();
+|    $landings_id = 1765;
+|    $sessiondata = array();
+|    if (!empty($_SESSION['l'.$landings_id])) {
+|        $sessiondata = json_decode($_SESSION['l'.$landings_id],true);
+|    }
+|    if (!isset($sessiondata["click"])) {
+|        $sessiondata["click"] = '';
+|        $url = 'https://mosclubkrasota.ru/site/clicks/';
+|        $postdata = $_GET;
+|        $postdata['landings_id'] = $landings_id;
+|        $postdata['ip'] = $_SERVER["HTTP_X_FORWARDED_FOR"];
+|        $postdata['referer'] = $_SERVER["HTTP_REFERER"];
+|        $postdata['useragent'] = $_SERVER["HTTP_USER_AGENT"];
+|        $postdata['refererlanding'] = "http://".$_SERVER["HTTP_HOST"].$_SERVER["SCRIPT_NAME"];
+|        $postdata['landingsscripts'] = true;
+|        $postdata['citieslist'] = true;
+|        $postdata['advertisersrequisites'] = true; // Для передачи на ленд набора реквизитов
+|        $ch = curl_init($url);
+|        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+|        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+|        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+|        curl_setopt($ch, CURLOPT_POST, 1);
+|        curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+|        $sendingresult = curl_exec($ch);
+|        $sendingerror = curl_error($ch);
+|        if ( $sendingerror == "" && ($sendingresultjson = json_decode($sendingresult, true)) )
+|        {
+|            if (!empty($sendingresultjson["click"]))
+|                $sessiondata["click"] = $sendingresultjson["click"];
+|        
+|            if (!empty($sendingresultjson["landingsscripts"]))
+|                $sessiondata["landingsscripts"] = $sendingresultjson["landingsscripts"];
+|        
+|            if (!empty($sendingresultjson["citieslist"]))
+|                $sessiondata["citieslist"] = $sendingresultjson["citieslist"];
+|        
+|    // Сохранение набора реквизитов 
+|            if (!empty($sendingresultjson["advertisersrequisites"]))
+|                $sessiondata["advertisersrequisites"] = $sendingresultjson["advertisersrequisites"];
+|        }
+|        $_SESSION['l'.$landings_id] = json_encode($sessiondata);
+|    }
+|    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+|        require_once("/var/www/lendingdom.ru/data/www/lendingdom.ru/lib/Lead.php");
+|				if ($_POST['Lead']['message']) {
+|        @mail('office@adamantmg.ru', "Adamant - Заявка с нижней формы сайта", "<html>
+|            <head>
+|                <title> Adamant - Заявка с нижней формы сайта </title>
+|            </head>
+|            <body>
+|             <div>Имя: " . $_POST['Lead']['name'] . "\n</div>
+|             <div>Телефон: " . $_POST['Lead']['phone'] . "\n</div>
+|             <div>Сообщение: " . $_POST['Lead']['message'] . "\n</div>
+|            </body>
+|        </html>", "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf8\r\n");
+|				}
+|
+|        $sessiondata["leadflag"] = true;
+|        $_SESSION['l'.$landings_id] = json_encode($sessiondata);
+|        header('Location: ' . $_SERVER['REQUEST_URI']);
+|    }
+|?>
+
 footer#footer.footer
 	.footer__content
 		.footer__contacts
@@ -30,6 +95,18 @@ footer#footer.footer
 			method='post'
 			onsubmit='validateform(this); return false;'
 		)
+
+			<input type="hidden" name="Lead[offer]" value="adamant">
+			<input type="hidden" name="Lead[info]" value="Заявка с формы опроса">
+			<input type="hidden" name="Lead[data]" value="">
+			<input class="cityInput" value="Russia" name="Lead[city]" type="hidden">
+			<input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
+			<input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
+			<input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
+			<input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
+			<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
+			<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
+			<input type="hidden" name="Lead[wmkey]" value="5545730c">
 
 			.c-form__header
 				p.header__text Есть вопросы? Напишите нам сейчас
@@ -76,6 +153,50 @@ section#copyright.copyright
 				a.list__link(href='http://docmedtv.ru/agreement.php' target='_blank') Пользовательское соглашение
 			.list__item
 				a.list__link(href='http://docmedtv.ru/personal.php' target='_blank') Согласие на обработкуперсональных данных
+
+script.
+	function validateform(form) {
+		var digits_reg = new RegExp('[^0-9]', 'g');
+
+		var nameInput = form.elements['Lead[name]'];
+		if (nameInput.value == '' && nameInput.value.length < 2) {
+			alert('Имя указано неверно!');
+			return false;
+		}
+
+		var msgInput = form.elements['Lead[message]'];
+		if (msgInput.value == '' && msgInput.value.length < 2) {
+			alert('Заполните поле "Сообщение"!');
+			return false;
+		}
+
+		var phoneInput = form.elements['Lead[phone]'];
+		var phoneInputValue = phoneInput.value.replace(digits_reg, '');
+		if (
+			phoneInputValue == '' ||
+			phoneInputValue.length < 11 ||
+			phoneInputValue.length > 11
+		) {
+			alert(
+				'Телефон указан неверно! Должен сождержать 11 цифр. Пример: +7(912)345-67-89 или городской с кодом города +7(495)123-45-67'
+			);
+			return false;
+		} else {
+			phoneInput.value = phoneInputValue;
+		}
+
+		form.submit();
+	}
+
+|<?=empty($sessiondata["landingsscripts"]["inbody"])?'':$sessiondata["landingsscripts"]["inbody"]?>
+|
+|<?php if (($_SERVER['REQUEST_METHOD'] != 'POST') && isset($sessiondata["leadflag"])) {
+|  unset($sessiondata["leadflag"]);
+|  $_SESSION['l'.$landings_id] = json_encode($sessiondata);
+|    
+|  echo empty($sessiondata["landingsscripts"]["thankyoupage"])?'':$sessiondata["landingsscripts"]["thankyoupage"];
+|  echo "<script>alert('Ваша заявка принята. Вскоре с вами свяжется оператор для уточнения деталей.');</script>";
+|} ?>
 
 script.
 	'use strict';

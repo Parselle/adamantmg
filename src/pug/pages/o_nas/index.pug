@@ -266,37 +266,37 @@ html(lang='ru')
 				//- 					br
 				//- 					span= item.text2
 
-		section#team.section.team
-			.wrap
-				h1.section__title.team__title.line КОМАНДА
+		//- section#team.section.team
+		//- 	.wrap
+		//- 		h1.section__title.team__title.line КОМАНДА
 
-				.team__content
-					.team__leaders
-						//- h5.leaders__title Руководители
+		//- 		.team__content
+		//- 			.team__leaders
+		//- 				//- h5.leaders__title Руководители
 
-						each person in team_1
-							.team__block
-								img.block__img(src= person.img, alt= person.name)
-								.block__content
-									h6.block__title= person.name
-									p.block__desc= person.position
-									p.block__text= person.about
+		//- 				each person in team_1
+		//- 					.team__block
+		//- 						img.block__img(src= person.img, alt= person.name)
+		//- 						.block__content
+		//- 							h6.block__title= person.name
+		//- 							p.block__desc= person.position
+		//- 							p.block__text= person.about
 
-					.team__people.js-team
-						//- h5.people__title Сотрудники
+		//- 			.team__people.js-team
+		//- 				//- h5.people__title Сотрудники
 
-						.team__blocks.js-team-blocks
-							.blocks__view.js-team-view
+		//- 				.team__blocks.js-team-blocks
+		//- 					.blocks__view.js-team-view
 
-								each person in team_2
-									.team__block.team__block--small.js-team-item
-										img.block__img(src= person.img, alt= person.name)
-										.block__content
-											h6.block__title= person.name
-											p.block__desc= person.position
+		//- 						each person in team_2
+		//- 							.team__block.team__block--small.js-team-item
+		//- 								img.block__img(src= person.img, alt= person.name)
+		//- 								.block__content
+		//- 									h6.block__title= person.name
+		//- 									p.block__desc= person.position
 
-							.blocks__control
-								a.control__btn.control__btn--top(href="javascript:void(0)" data-team-top)
-								a.control__btn.control__btn--bottom(href="javascript:void(0)" data-team-bottom)
+		//- 					.blocks__control
+		//- 						a.control__btn.control__btn--top(href="javascript:void(0)" data-team-top)
+		//- 						a.control__btn.control__btn--bottom(href="javascript:void(0)" data-team-bottom)
 
 		<?php include '../footer.php';?>

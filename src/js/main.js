@@ -8,6 +8,8 @@ import Modal from './components/Modal';
 import Tools from './components/Tools';
 import Team from './components/Team';
 import Tabs from './components/Tabs';
+import Calc from './components/Calc';
+import Quiz from './components/Quiz';
 
 let preloader = document.querySelector('.js-preloader');
 
@@ -25,7 +27,7 @@ window.onload = function() {
 
   new InputMask().run();
 
-  new Menu().run();
+  //new Menu().run();
 
   let particles = document.querySelector('#particles-js');
   if (particles) {
@@ -69,6 +71,18 @@ window.onload = function() {
     new Team().run();
   }
 
+  let calc = document.querySelector('.js-calc');
+  if (calc) {
+    new Calc(calc).run();
+  }
+
+  let quiz = document.querySelector('.js-quiz');
+  if (quiz) {
+    new Quiz(quiz).run();
+  }
+
+  new Modal().run();
+
   // let tabs = document.querySelector('.js-tabs');
   // if (tabs) {
   //   new Tabs().run();
@@ -85,7 +99,5 @@ window.onload = function() {
   // document.querySelectorAll('.js-counter').forEach((item) => {
   //   new Counter(item).run();
   // });
-
-  new Modal().run();
   
 };
