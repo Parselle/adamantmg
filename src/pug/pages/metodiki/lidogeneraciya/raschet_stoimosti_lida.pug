@@ -60,70 +60,6 @@
     },
   ];
 
-|<?php
-|    session_start();
-|    $landings_id = 1760;
-|    $sessiondata = array();
-|    if (!empty($_SESSION['l'.$landings_id])) {
-|        $sessiondata = json_decode($_SESSION['l'.$landings_id],true);
-|    }
-|    if (!isset($sessiondata["click"])) {
-|        $sessiondata["click"] = '';
-|        $url = 'https://mosclubkrasota.ru/site/clicks/';
-|        $postdata = $_GET;
-|        $postdata['landings_id'] = $landings_id;
-|        $postdata['ip'] = $_SERVER["HTTP_X_FORWARDED_FOR"];
-|        $postdata['referer'] = $_SERVER["HTTP_REFERER"];
-|        $postdata['useragent'] = $_SERVER["HTTP_USER_AGENT"];
-|        $postdata['refererlanding'] = "http://".$_SERVER["HTTP_HOST"].$_SERVER["SCRIPT_NAME"];
-|        $postdata['landingsscripts'] = true;
-|        $postdata['citieslist'] = true;
-|        $postdata['advertisersrequisites'] = true; // Для передачи на ленд набора реквизитов
-|        $ch = curl_init($url);
-|        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-|        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-|        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-|        curl_setopt($ch, CURLOPT_POST, 1);
-|        curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
-|        $sendingresult = curl_exec($ch);
-|        $sendingerror = curl_error($ch);
-|        if ( $sendingerror == "" && ($sendingresultjson = json_decode($sendingresult, true)) )
-|        {
-|            if (!empty($sendingresultjson["click"]))
-|                $sessiondata["click"] = $sendingresultjson["click"];
-|        
-|            if (!empty($sendingresultjson["landingsscripts"]))
-|                $sessiondata["landingsscripts"] = $sendingresultjson["landingsscripts"];
-|        
-|            if (!empty($sendingresultjson["citieslist"]))
-|                $sessiondata["citieslist"] = $sendingresultjson["citieslist"];
-|        
-|    // Сохранение набора реквизитов 
-|            if (!empty($sendingresultjson["advertisersrequisites"]))
-|                $sessiondata["advertisersrequisites"] = $sendingresultjson["advertisersrequisites"];
-|        }
-|        $_SESSION['l'.$landings_id] = json_encode($sessiondata);
-|    }
-|    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-|        require_once("/var/www/lendingdom.ru/data/www/lendingdom.ru/lib/Lead.php");
-|         if ($_POST['Lead']['data']) {
-|        @mail('office@adamantmg.ru', "Adamant - Расчёт стоимости лида", "<html>
-|            <head>
-|                <title> Adamant - Расчёт стоимости лида </title>
-|            </head>
-|            <body>
-|             <div>Имя: " . $_POST['Lead']['name'] . "\n</div>
-|             <div>Телефон: " . $_POST['Lead']['phone'] . "\n</div>
-|             <div>Опросник: " . $_POST['Lead']['data'] . "\n</div>
-|            </body>
-|        </html>", "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf8\r\n");
-|         }
-|        $sessiondata["leadflag"] = true;
-|        $_SESSION['l'.$landings_id] = json_encode($sessiondata);
-|        header('Location: ' . $_SERVER['REQUEST_URI']);
-|    }
-|?>
-
 doctype html
 html(lang='ru')
   head
@@ -132,16 +68,16 @@ html(lang='ru')
 
     - var $title = 'Расчёт стоимости лида от ADAMANT MEDIA GROUP'
     - var $description = 'Калькулятор расчёта стоимости лида по формуле. Стоимость привлечения лида в контекстной рекламе, в яндекс директ, в инстаграме, по отраслям.'
-    - var $url = 'http://adamantmg.ru'
+    - var $url = 'https://adamantmg.ru'
     - var $keywords = 'Стоимость лида'
     - var $tabColor = '#8e5fc2'
 
     - var $author = 'AdamantMG'
-    - var $email = 'shtab@adamantmg.ru'
+    - var $email = 'office@adamantmg.ru'
 
     - var $authorTwiiter = ''
     - var $authorGoogle = ''
-    - var $ogImageUrl = 'http://adamantmg.ru/img/preview.jpg'
+    - var $ogImageUrl = 'https://adamantmg.ru/img/preview.jpg'
 
     meta(charset= $charset)
     meta(name='viewport' content='width=device-width' initial-scale=1.0)

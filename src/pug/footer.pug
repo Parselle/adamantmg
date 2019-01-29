@@ -1,239 +1,173 @@
-|<?php
-|    session_start();
-|    $landings_id = 1765;
-|    $sessiondata = array();
-|    if (!empty($_SESSION['l'.$landings_id])) {
-|        $sessiondata = json_decode($_SESSION['l'.$landings_id],true);
-|    }
-|    if (!isset($sessiondata["click"])) {
-|        $sessiondata["click"] = '';
-|        $url = 'https://mosclubkrasota.ru/site/clicks/';
-|        $postdata = $_GET;
-|        $postdata['landings_id'] = $landings_id;
-|        $postdata['ip'] = $_SERVER["HTTP_X_FORWARDED_FOR"];
-|        $postdata['referer'] = $_SERVER["HTTP_REFERER"];
-|        $postdata['useragent'] = $_SERVER["HTTP_USER_AGENT"];
-|        $postdata['refererlanding'] = "http://".$_SERVER["HTTP_HOST"].$_SERVER["SCRIPT_NAME"];
-|        $postdata['landingsscripts'] = true;
-|        $postdata['citieslist'] = true;
-|        $postdata['advertisersrequisites'] = true; // Для передачи на ленд набора реквизитов
-|        $ch = curl_init($url);
-|        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-|        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-|        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-|        curl_setopt($ch, CURLOPT_POST, 1);
-|        curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
-|        $sendingresult = curl_exec($ch);
-|        $sendingerror = curl_error($ch);
-|        if ( $sendingerror == "" && ($sendingresultjson = json_decode($sendingresult, true)) )
-|        {
-|            if (!empty($sendingresultjson["click"]))
-|                $sessiondata["click"] = $sendingresultjson["click"];
-|        
-|            if (!empty($sendingresultjson["landingsscripts"]))
-|                $sessiondata["landingsscripts"] = $sendingresultjson["landingsscripts"];
-|        
-|            if (!empty($sendingresultjson["citieslist"]))
-|                $sessiondata["citieslist"] = $sendingresultjson["citieslist"];
-|        
-|    // Сохранение набора реквизитов 
-|            if (!empty($sendingresultjson["advertisersrequisites"]))
-|                $sessiondata["advertisersrequisites"] = $sendingresultjson["advertisersrequisites"];
-|        }
-|        $_SESSION['l'.$landings_id] = json_encode($sessiondata);
-|    }
-|    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-|        require_once("/var/www/lendingdom.ru/data/www/lendingdom.ru/lib/Lead.php");
-|				if ($_POST['Lead']['message']) {
-|        @mail('office@adamantmg.ru', "Adamant - Заявка с нижней формы сайта", "<html>
-|            <head>
-|                <title> Adamant - Заявка с нижней формы сайта </title>
-|            </head>
-|            <body>
-|             <div>Имя: " . $_POST['Lead']['name'] . "\n</div>
-|             <div>Телефон: " . $_POST['Lead']['phone'] . "\n</div>
-|             <div>Сообщение: " . $_POST['Lead']['message'] . "\n</div>
-|            </body>
-|        </html>", "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf8\r\n");
-|				}
-|
-|        $sessiondata["leadflag"] = true;
-|        $_SESSION['l'.$landings_id] = json_encode($sessiondata);
-|        header('Location: ' . $_SERVER['REQUEST_URI']);
-|    }
-|?>
-
 footer#footer.footer
-	.footer__content
-		.footer__contacts
-			.contacts__content
-				img.contacts__logo(src="http://audiopohudenie.ru/img/adamant/adamant.svg" width='190' height='58' alt="Логотип Adamant Media Group")
+  .footer__content
+    .footer__contacts
+      .contacts__content
+        img.contacts__logo(src="https://adamantmg.ru/img/adamant/adamant.svg" width='190' height='58' alt="Логотип Adamant Media Group")
 
-				.contacts__block
-					.contacts__item
-						svg.contacts__icon(width='25' height='22')
-							use(xlink:href='#icon-phone')
-						a.contacts__link.contacts__link--phone(href='tel:+74991120777') +7 (499) 112 0 777
-					.contacts__item
-						svg.contacts__icon(width='25' height='22')
-							use(xlink:href='#icon-tm')
-						a.contacts__link(href='http://t.me/adamantmg') t.me/adamantmg
-					.contacts__item
-						svg.contacts__icon(width='25' height='17')
-							use(xlink:href='#icon-mail')
-						a.contacts__link(href='mailto:shtab@adamantmg.ru') shtab@adamantmg.ru
+        .contacts__block
+          .contacts__item
+            svg.contacts__icon(width='25' height='22')
+              use(xlink:href='#icon-phone')
+            a.contacts__link.contacts__link--phone(href='tel:+74991120777') +7 (499) 112 0 777
+          .contacts__item
+            svg.contacts__icon(width='25' height='22')
+              use(xlink:href='#icon-tm')
+            a.contacts__link(href='http://t.me/adamantmg') t.me/adamantmg
+          .contacts__item
+            svg.contacts__icon(width='25' height='17')
+              use(xlink:href='#icon-mail')
+            a.contacts__link(href='mailto:office@adamantmg.ru') office@adamantmg.ru
 
-				.contacts__address
-					svg.contacts__icon(width='19' height='32')
-						use(xlink:href='#icon-pin')
-					p.address__text.
-						<b>г. Москва, Варшавское шоссе, д. 125, строение 1, офис 536</b><br>
-						5 дней в неделю с 10:00 до 19:00 (по МСК)
+        .contacts__address
+          svg.contacts__icon(width='19' height='32')
+            use(xlink:href='#icon-pin')
+          p.address__text.
+            <b>г. Москва, Варшавское шоссе, д. 125, строение 1, офис 536</b><br>
+            5 дней в неделю с 10:00 до 19:00 (по МСК)
 
-		form#form-1.c-form.footer__form(
-			action=''
-			method='post'
-			onsubmit='validateform(this); return false;'
-		)
+    form#form-1.c-form.footer__form(
+      action=''
+      method='post'
+      onsubmit='validateform(this); return false;'
+    )
 
-			<input type="hidden" name="Lead[offer]" value="adamant">
-			<input type="hidden" name="Lead[info]" value="Заявка с формы опроса">
-			<input type="hidden" name="Lead[data]" value="">
-			<input class="cityInput" value="Russia" name="Lead[city]" type="hidden">
-			<input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
-			<input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
-			<input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
-			<input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
-			<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
-			<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
-			<input type="hidden" name="Lead[wmkey]" value="1275ba">
+      <input type="hidden" name="Lead[offer]" value="adamant">
+      <input type="hidden" name="Lead[info]" value="Заявка с формы опроса">
+      <input type="hidden" name="Lead[data]" value="">
+      <input class="cityInput" value="Russia" name="Lead[city]" type="hidden">
+      <input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
+      <input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
+      <input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
+      <input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
+      <input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
+      <input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
+      <input type="hidden" name="Lead[wmkey]" value="1275ba">
 
-			.c-form__header
-				p.header__text Есть вопросы? Напишите нам сейчас
+      .c-form__header
+        p.header__text Есть вопросы? Напишите нам сейчас
 
-			.c-form__content
-				label.c-form__block.c-form__block--name
-					input.c-input(
-						type='text'
-						name='Lead[name]'
-						data-mask='name'
-						placeholder='Ваше имя'
-						required
-					)
+      .c-form__content
+        label.c-form__block.c-form__block--name
+          input.c-input(
+            type='text'
+            name='Lead[name]'
+            data-mask='name'
+            placeholder='Ваше имя'
+            required
+          )
 
-				label.c-form__block.c-form__block--phone
-					input.c-input(
-						type='tel'
-						name='Lead[phone]'
-						data-mask='phone'
-						placeholder='Ваш телефон'
-						required
-					)
+        label.c-form__block.c-form__block--phone
+          input.c-input(
+            type='tel'
+            name='Lead[phone]'
+            data-mask='phone'
+            placeholder='Ваш телефон'
+            required
+          )
 
-				label.c-form__block.c-form__block--message
-					textarea.c-input(name="Lead[message]" placeholder="Сообщение")
+        label.c-form__block.c-form__block--message
+          textarea.c-input(name="Lead[message]" placeholder="Сообщение")
 
-				p.c-form__footer-text.
-					Нажимая на кнопку «Отправить», вы соглашаетесь на обработку
-					персональных данных в соответствии с Политикой конфиденциальности
+        p.c-form__footer-text.
+          Нажимая на кнопку «Отправить», вы соглашаетесь на обработку
+          персональных данных в соответствии с Политикой конфиденциальности
 
-				input.c-btn.c-btn--arrow--white.c-form__btn(
-					type='submit'
-					value='ОТПРАВИТЬ СООБЩЕНИЕ'
-				)
+        input.c-btn.c-btn--arrow--white.c-form__btn(
+          type='submit'
+          value='ОТПРАВИТЬ СООБЩЕНИЕ'
+        )
 
-	.footer__map.js-map
+  .footer__map.js-map
 
 section#copyright.copyright
-	.wrap
-		.copyright__list
-			.list__item
-				a.list__link(href='http://docmedtv.ru/policy.php' target='_blank') Политика конфиденциальности
-			.list__item
-				a.list__link(href='http://docmedtv.ru/agreement.php' target='_blank') Пользовательское соглашение
-			.list__item
-				a.list__link(href='http://docmedtv.ru/personal.php' target='_blank') Согласие на обработкуперсональных данных
+  .wrap
+    .copyright__list
+      .list__item
+        a.list__link(href='https://docmedtv.ru/policy.php' target='_blank') Политика конфиденциальности
+      .list__item
+        a.list__link(href='https://docmedtv.ru/agreement.php' target='_blank') Пользовательское соглашение
+      .list__item
+        a.list__link(href='https://docmedtv.ru/personal.php' target='_blank') Согласие на обработкуперсональных данных
 
 script.
-	function validateform(form) {
-		var digits_reg = new RegExp('[^0-9]', 'g');
-
-		var nameInput = form.elements['Lead[name]'];
-		if (nameInput.value == '' && nameInput.value.length < 2) {
-			alert('Имя указано неверно!');
-			return false;
-		}
-
-		var msgInput = form.elements['Lead[message]'];
-		if (msgInput.value == '' && msgInput.value.length < 2) {
-			alert('Заполните поле "Сообщение"!');
-			return false;
-		}
-
-		var phoneInput = form.elements['Lead[phone]'];
-		var phoneInputValue = phoneInput.value.replace(digits_reg, '');
-		if (
-			phoneInputValue == '' ||
-			phoneInputValue.length < 11 ||
-			phoneInputValue.length > 11
-		) {
-			alert(
-				'Телефон указан неверно! Должен сождержать 11 цифр. Пример: +7(912)345-67-89 или городской с кодом города +7(495)123-45-67'
-			);
-			return false;
-		} else {
-			phoneInput.value = phoneInputValue;
-		}
-
-		form.submit();
-	}
+  function validateform(form) {
+    var digits_reg = new RegExp('[^0-9]', 'g');
+  
+    var nameInput = form.elements['Lead[name]'];
+    if (nameInput.value == '' && nameInput.value.length < 2) {
+      alert('Имя указано неверно!');
+      return false;
+    }
+  
+    var msgInput = form.elements['Lead[message]'];
+    if (msgInput.value == '' && msgInput.value.length < 2) {
+      alert('Заполните поле "Сообщение"!');
+      return false;
+    }
+  
+    var phoneInput = form.elements['Lead[phone]'];
+    var phoneInputValue = phoneInput.value.replace(digits_reg, '');
+    if (
+      phoneInputValue == '' ||
+      phoneInputValue.length < 11 ||
+      phoneInputValue.length > 11
+    ) {
+      alert(
+        'Телефон указан неверно! Должен сождержать 11 цифр. Пример: +7(912)345-67-89 или городской с кодом города +7(495)123-45-67'
+      );
+      return false;
+    } else {
+      phoneInput.value = phoneInputValue;
+    }
+  
+    form.submit();
+  }
 
 |<?=empty($sessiondata["landingsscripts"]["inbody"])?'':$sessiondata["landingsscripts"]["inbody"]?>
 |
 |<?php if (($_SERVER['REQUEST_METHOD'] != 'POST') && isset($sessiondata["leadflag"])) {
-|  unset($sessiondata["leadflag"]);
-|  $_SESSION['l'.$landings_id] = json_encode($sessiondata);
-|    
-|  echo empty($sessiondata["landingsscripts"]["thankyoupage"])?'':$sessiondata["landingsscripts"]["thankyoupage"];
-|  echo "<script>alert('Ваша заявка принята. Вскоре с вами свяжется оператор для уточнения деталей.');</script>";
+| unset($sessiondata["leadflag"]);
+| $_SESSION['l'.$landings_id] = json_encode($sessiondata);
+| 
+| echo "<script>alert('Ваша заявка принята. Вскоре с вами свяжется оператор для уточнения деталей.');</script>";
 |} ?>
 
 script.
-	'use strict';
-	const contactsMap = document.querySelector('.js-map');
+  'use strict';
+  const contactsMap = document.querySelector('.js-map');
 
-	function initMap() {
-		const location = {lat: 55.629320, lng: 37.621216};
-		const mapOptions = {
-			center: new google.maps.LatLng(location),
-			zoom: 16,
-			disableDefaultUI: true
-		};
+  function initMap() {
+    const location = {lat: 55.629320, lng: 37.621216};
+    const mapOptions = {
+      center: new google.maps.LatLng(location),
+      zoom: 16,
+      disableDefaultUI: true
+    };
 
-		const map = new google.maps.Map(contactsMap, mapOptions);
-		map.panBy(-7, -29);
+    const map = new google.maps.Map(contactsMap, mapOptions);
+    map.panBy(-7, -29);
 
-		const markerImage = new google.maps.MarkerImage(
-			'http://audiopohudenie.ru/img/contacts/map-adamant.svg',
-			new google.maps.Size(114, 42)
-		);
+    const markerImage = new google.maps.MarkerImage(
+      'https://adamantmg.ru/img/contacts/map-adamant.svg',
+      new google.maps.Size(114, 42)
+    );
 
-		new google.maps.Marker({
-			position: location,
-			map: map,
-			icon: markerImage
-		});
+    new google.maps.Marker({
+      position: location,
+      map: map,
+      icon: markerImage
+    });
 
-		window.addEventListener('resize', () => {
-			map.setCenter(location);
-			map.setZoom(16);
-			map.panBy(-7, -29);
-		});
-	}
-	//- function initMap() {
-	//-   var location = {lat: 55.629320, lng: 37.621216};
-	//-   var map = new google.maps.Map(
-	//-       document.querySelector('.js-map'), {zoom: 16, center: location});
-	//-   var marker = new google.maps.Marker({position: location, map: map});
-	//- }
+    window.addEventListener('resize', () => {
+      map.setCenter(location);
+      map.setZoom(16);
+      map.panBy(-7, -29);
+    });
+  }
+  //- function initMap() {
+  //-   var location = {lat: 55.629320, lng: 37.621216};
+  //-   var map = new google.maps.Map(
+  //-       document.querySelector('.js-map'), {zoom: 16, center: location});
+  //-   var marker = new google.maps.Marker({position: location, map: map});
+  //- }
 script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmbMXDyKO6qmfgN3gL4LVXAPncLcM-5jQ&callback=initMap")

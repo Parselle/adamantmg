@@ -27,7 +27,7 @@ window.onload = function() {
 
   new InputMask().run();
 
-  //new Menu().run();
+  new Menu().run();
 
   let particles = document.querySelector('#particles-js');
   if (particles) {

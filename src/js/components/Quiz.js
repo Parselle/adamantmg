@@ -12,6 +12,14 @@ export default class Quiz {
         alert('Заполните обязательные поля!');
         return false;
       }
+
+      let tempValue = inputs[i].value;
+      tempValue.split(' ').join();
+
+      if(tempValue.indexOf('http') > -1) {
+        alert('Нельзя вводить ссылки!');
+        return false;
+      }
     }
 
     return true;
