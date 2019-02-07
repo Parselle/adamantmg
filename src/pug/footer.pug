@@ -170,4 +170,22 @@ script.
   //-       document.querySelector('.js-map'), {zoom: 16, center: location});
   //-   var marker = new google.maps.Marker({position: location, map: map});
   //- }
+
+//- Yandex.Metrika counter
+script.
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(52272682, "init", {
+      id:52272682,
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true
+  });
+
+noscript
+  div
+    img(src="https://mc.yandex.ru/watch/52272682" style="position:absolute; left:-9999px;" alt="")
 script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmbMXDyKO6qmfgN3gL4LVXAPncLcM-5jQ&callback=initMap")
