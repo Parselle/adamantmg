@@ -1,0 +1,54 @@
+.notfound
+  padding: 30px 0
+
+  .wrap
+    justify-items: center
+    justify-content: center
+    padding: 0
+  
+  &__controller
+    position: relative
+    background: url('../img/notfound/notfound-desktop.svg') center no-repeat
+    width: 720px
+    height: 617px
+
+    +media-mx(500px)
+      width: 520px
+      height: 480px
+      background-image: url('../img/notfound/notfound-tablet.svg') center no-repeat
+
+  &__href
+    position: absolute
+    display: grid
+    opacity: 0.5
+    transition: all 0.3s
+
+    &:hover
+      background: $color-purple
+
+    &--main
+      top: 202px
+      left: 230px
+      width: 162px
+      height: 60px
+      clip-path: polygon(16% 0, 100% 0, 100% 50%, 100% 50%, 100% 100%, 14% 100%, 0 50%, 0 50%)
+
+      +media-mx(500px)
+        width: 115px
+        height: 45px
+        top: 162px
+        left: 167px
+
+    &--leads
+      top: 268px
+      left: 333px
+      width: 158px
+      height: 61px
+      clip-path: polygon(0 0, 84% 0%, 100% 50%, 100% 50%, 84% 100%, 0 100%, 0 50%, 0 50%)
+
+      +media-mx(500px)
+        width: 115px
+        height: 45px
+        top: 210px
+        left: 240px
+

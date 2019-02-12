@@ -43,7 +43,21 @@
 |          </body>
 |      </html>", "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf8\r\n");
 |       }
+|    
+|    elseif (!empty($_POST['Lead']['leads'])) {
+|      @mail('office@adamantmg.ru', "Adamant - ".(empty($_POST['Lead']['info'])?'':$_POST['Lead']['info']), "<html>
+|          <head>
+|              <title> Adamant - ".(empty($_POST['Lead']['info'])?'':$_POST['Lead']['info'])." </title>
+|          </head>
+|          <body>
+|           <div>Имя: " . $_POST['Lead']['name'] . "\n</div>
+|           <div>Телефон: " . $_POST['Lead']['phone'] . "\n</div>
+|          </body>
+|      </html>", "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf8\r\n");
+|       }
 |	   }
+|
+|
 |      
 |
 |      $sessiondata["leadflag"] = true;
@@ -67,11 +81,12 @@
 |			include_once $_SERVER["DOCUMENT_ROOT"].$request_uri.".php";
 |	}
 |	else {
-|	//    var_dump($_SERVER);
-|	//    echo $request_uri."\n";
-|	//    echo $_SERVER["DOCUMENT_ROOT"].$request_uri.".php"."\n";
-|			header("HTTP/1.0 404 Not Found");
-|			echo "Page not exist";
+|	    //var_dump($_SERVER);
+|	    //echo $request_uri."\n";
+|	    //echo $_SERVER["DOCUMENT_ROOT"].$request_uri.".php"."\n";
+|
+|     include_once $_SERVER["DOCUMENT_ROOT"]."/404".".php";
+|			//echo "Page not exist";
 |	}
 |
 |	exit();
